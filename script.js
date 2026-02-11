@@ -29,17 +29,18 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Navbar background on scroll
-const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.backdropFilter = 'blur(10px)';
-    } else {
-        navbar.style.background = 'var(--white)';
-        navbar.style.backdropFilter = 'none';
-    }
-});
+// Throttle function for performance optimization
+function throttle(func, delay) {
+    let lastCall = 0;
+    return function(...args) {
+        const now = new Date().getTime();
+        if (now - lastCall < delay) {
+            return;
+        }
+        lastCall = now;
+        return func(...args);
+    };
+}
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -108,17 +109,30 @@ if (subtitle) {
     setTimeout(typeWriter, 500);
 }
 
-// Add active state to navigation links based on scroll position
+// Consolidated scroll handler with throttling for better performance
+const navbar = document.querySelector('.navbar');
 const sections = document.querySelectorAll('section[id]');
 const navItems = document.querySelectorAll('.nav-links a');
+const hero = document.querySelector('.hero');
 
-window.addEventListener('scroll', () => {
-    let current = '';
+const handleScroll = throttle(() => {
+    const scrolled = window.pageYOffset;
     
+    // Navbar background change
+    if (scrolled > 50) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.backdropFilter = 'blur(10px)';
+    } else {
+        navbar.style.background = 'var(--white)';
+        navbar.style.backdropFilter = 'none';
+    }
+    
+    // Active navigation link highlighting
+    let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop - 200) {
+        if (scrolled >= sectionTop - 200) {
             current = section.getAttribute('id');
         }
     });
@@ -129,16 +143,14 @@ window.addEventListener('scroll', () => {
             item.classList.add('active');
         }
     });
-});
-
-// Add parallax effect to hero section
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    const scrolled = window.pageYOffset;
+    
+    // Parallax effect on hero section
     if (hero) {
         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
-});
+}, 10);
+
+window.addEventListener('scroll', handleScroll);
 
 // Initialize animations on page load
 document.addEventListener('DOMContentLoaded', () => {
