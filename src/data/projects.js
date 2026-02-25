@@ -11,7 +11,7 @@ export const projects = [
   },
   {
     id: 2,
-    title: "MedDoc – Plateforme de Gestion de Cabinet Médicaux",
+    title: "MedDoc – Plateforme de Gestion de Cabinet Médicaux.",
     description:
       "Plateforme de gestion de dossiers médicaux, rendez-vous, prescriptions et salles d’attente virtuelles pour les professionnels de santé.",
     image: "/meddoc.png",
