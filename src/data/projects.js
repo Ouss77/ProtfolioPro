@@ -5,7 +5,7 @@ export const projects = [
     description:
       "Plateforme SaaS connectant médecins et établissements de santé pour faciliter les remplacements et opportunités professionnelles.",
     image: "/doctonest.png",
-    liveUrl: "www.lefoyermedical.com",
+    liveUrl: "https://www.lefoyermedical.com/",
     githubUrl: "https://github.com/Ouss77/FML",
     tech: ["Next.js", "Tailwind", "Node.js", "MongoDB"]
   },
@@ -29,35 +29,35 @@ export const projects = [
     githubUrl: "https://github.com/Ouss77/nabou_Home",
     tech: ["JavaScript", "Bootstrap", "JSON Server", "Axios"]
   },
-  {
-    id: 4,
-    title: "Hotels Scraping – Script de scraping pour collecter des données d’hôtels",
-    description:
-      "Script de scraping automatisé pour collecter des données d’hôtels à partir de sites de réservation en ligne, avec stockage dans une base de données MongoDB.",
-    image: "/themes.jpg",
-    liveUrl: "",
-    githubUrl: "",
-    tech: ["React", "Jest", "Tailwind"]
-  },
+  // {
+  //   id: 4,
+  //   title: "Hotels Scraping – Script de scraping pour collecter des données d’hôtels",
+  //   description:
+  //     "Script de scraping automatisé pour collecter des données d’hôtels à partir de sites de réservation en ligne, avec stockage dans une base de données MongoDB.",
+  //   image: "/themes.jpg",
+  //   liveUrl: "",
+  //   githubUrl: "",
+  //   tech: ["React", "Jest", "Tailwind"]
+  // },
   {
     id: 5,
     title: "Tweet Polarisation – Application d’analyse de la polarisation des tweets sur des sujets d’actualité, avec visualisation des résultats et classification des sentiments.",
     description:
-      "Application d’analyse de la polarisation des tweets sur des sujets d’actualité, avec visualisation des résultats et classification des sentiments.",
-    image: "/themes.jpg",
-    liveUrl: "",
+      "This project is a sentiment analysis task on Apple-related tweets. The notebook demonstrates a complete machine learning pipeline, starting from data loading and extensive preprocessing, including text cleaning, stop word removal, stemming, and lemmatization. It also includes exploratory data analysis with visualizations like sentiment distribution and word clouds. Finally, various machine learning models (Multinomial Naive Bayes, Logistic Regression, Decision Tree, SVM, and Random Forest) are trained, evaluated, and hyperparameter-tuned to classify tweet sentiment as Positive, Negative, or Neutral. The performance of each model is assessed using accuracy, precision, recall, f1-score, and confusion matrices.",
+    image: "/sent.png",
+    liveUrl: "https://colab.research.google.com/drive/1NM8fpAZNuAmBmgj9gzXGIXpc8LIHHPzB",
     githubUrl: "",
-    tech: ["React", "Jest", "Tailwind"]
+    tech: ["Python", "Numpy", "Pandas", "Matplotlib", "Scikit-learn"]
   },
   {
     id: 6,
-    title: "Tweet Polarisation – Application d’analyse de la polarisation des tweets sur des sujets d’actualité, avec visualisation des résultats et classification des sentiments.",
+    title: "AF3M – Le site web officiel de L'Association Franco-Maghrébine de Mécanique et des Matériaux.",
     description:
-      "Application d’analyse de la polarisation des tweets sur des sujets d’actualité, avec visualisation des résultats et classification des sentiments.",
-    image: "/themes.jpg",
-    liveUrl: "",
-    githubUrl: "",
-    tech: ["React", "Jest", "Tailwind"]
+      "Le site web officiel de L'Association Franco-Maghrébine de Mécanique et des Matériaux, offrant des informations sur les événements, les publications et les membres de l'association.",
+    image: "/cover.png",
+    liveUrl: "https://www.front.af3m-assoc.org/",
+    githubUrl: "https://github.com/Ouss77/fondation-Ecole",
+    tech: ["Next.js", "Tailwind", "php", "ovh", "mysql"]
   }, 
     {
     id: 7,
@@ -71,12 +71,12 @@ export const projects = [
   }, 
     {
     id: 8,
-    title: "AF3M – Le site web officiel de L'Association Franco-Maghrébine de Mécanique et des Matériaux.",
+    title: "Green Construction – Site web pour une entreprise de construction durable.",
     description:
-      "Le site web officiel de L'Association Franco-Maghrébine de Mécanique et des Matériaux, offrant des informations sur les événements, les publications et les membres de l'association.",
-    image: "/themes.jpg",
-    liveUrl: "",
-    githubUrl: "",
-    tech: ["React", "Jest", "Tailwind"]
+      " Site web pour une entreprise de construction durable, mettant en avant les projets écologiques, les services offerts et les témoignages clients.",
+    image: "/cover-green.png",
+    liveUrl: "https://green-construction-git-dev-ouss77s-projects.vercel.app/",
+    githubUrl: "https://github.com/Ouss77/green-construction/tree/dev",
+    tech: ["Next.js", "Tailwind", "Node.js","Vercel"]
   }
 ]
