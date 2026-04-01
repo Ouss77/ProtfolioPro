@@ -71,8 +71,8 @@ const closeMobileMenu = () => {
       <!-- Desktop CTA -->
       <div class="hidden md:block">
         <a
-          href="/CV OUSSAMA SASS.pdf"
-          download="CV OUSSAMA SASS.pdf"
+          href="/CV FR Oussama Sassour.pdf"
+          download="CV FR Oussama Sassour.pdf"
           class="px-5 py-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-black font-semibold hover:opacity-90 transition hover:scale-105 duration-300 inline-block"
         >
           Télécharger CV

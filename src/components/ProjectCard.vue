@@ -42,7 +42,7 @@ defineProps({
         {{ title }}
       </h3>
 
-      <p class="text-gray-400 text-sm">
+      <p class="text-gray-400 text-sm overflow-hidden [display:-webkit-box] [-webkit-line-clamp:3] [-webkit-box-orient:vertical]">
         {{ description }}
       </p>
 

@@ -46,7 +46,7 @@ export const projects = [
       "This project is a sentiment analysis task on Apple-related tweets. The notebook demonstrates a complete machine learning pipeline, starting from data loading and extensive preprocessing, including text cleaning, stop word removal, stemming, and lemmatization. It also includes exploratory data analysis with visualizations like sentiment distribution and word clouds. Finally, various machine learning models (Multinomial Naive Bayes, Logistic Regression, Decision Tree, SVM, and Random Forest) are trained, evaluated, and hyperparameter-tuned to classify tweet sentiment as Positive, Negative, or Neutral. The performance of each model is assessed using accuracy, precision, recall, f1-score, and confusion matrices.",
     image: "/sent.png",
     liveUrl: "https://colab.research.google.com/drive/1NM8fpAZNuAmBmgj9gzXGIXpc8LIHHPzB",
-    githubUrl: "",
+    githubUrl: "https://colab.research.google.com/drive/127ERZDSTb1EGgyaFAqMTKR0SgrGrwD-q#scrollTo=2kzRXMBC-u7o",
     tech: ["Python", "Numpy", "Pandas", "Matplotlib", "Scikit-learn"]
   },
   {
@@ -59,16 +59,16 @@ export const projects = [
     githubUrl: "https://github.com/Ouss77/fondation-Ecole",
     tech: ["Next.js", "Tailwind", "php", "ovh", "mysql"]
   }, 
-    {
-    id: 7,
-    title: "E-learning Platform – Plateforme d’apprentissage en ligne avec cours interactifs, quiz et suivi des progrès pour les étudiants.",
-    description:
-      "Plateforme d’apprentissage en ligne avec cours interactifs, quiz et suivi des progrès pour les étudiants.",
-    image: "/themes.jpg",
-    liveUrl: "",
-    githubUrl: "",
-    tech: ["React", "Jest", "Tailwind"]
-  }, 
+  //   {
+  //   id: 7,
+  //   title: "E-learning Platform – Plateforme d’apprentissage en ligne avec cours interactifs, quiz et suivi des progrès pour les étudiants.",
+  //   description:
+  //     "Plateforme d’apprentissage en ligne avec cours interactifs, quiz et suivi des progrès pour les étudiants.",
+  //   image: "/themes.jpg",
+  //   liveUrl: "",
+  //   githubUrl: "",
+  //   tech: ["React", "Jest", "Tailwind"]
+  // }, 
     {
     id: 8,
     title: "Green Construction – Site web pour une entreprise de construction durable.",

@@ -35,6 +35,8 @@ const techLogoOverrides = {
   react: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
   ovh: 'https://cdn.simpleicons.org/ovhcloud/123f6d',
   vercel: 'https://cdn.simpleicons.org/vercel',
+  matplotlib: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg',
+  Sciketlearn: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg',
 }
 
 function normalizeTechName(value = '') {
