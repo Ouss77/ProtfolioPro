@@ -113,23 +113,24 @@ onUnmounted(() => {
     :class="isVisible
       ? 'py-16 md:py-20 bg-slate-900 text-white opacity-100 translate-y-0 transition-all duration-1000'
       : 'py-16 md:py-20 bg-slate-900 text-white opacity-0 translate-y-10'"
+    class="experience-section"
   >
     <div class="max-w-[84rem] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 md:mb-12">
         <p class="text-emerald-400 uppercase tracking-widest text-sm mb-3">
           Expériences
         </p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-3 md:mb-4">
+        <h2 class="experience-title text-3xl md:text-4xl font-bold mb-3 md:mb-4">
           Parcours Professionnel
         </h2>
-        <p class="text-gray-400 max-w-2xl mx-auto text-xs md:text-sm">
+        <p class="experience-subtitle text-gray-400 max-w-2xl mx-auto text-xs md:text-sm">
           Un format plus dynamique: swipe en mobile et timeline alternée sur desktop.
         </p>
       </div>
 
       <div
         ref="mobileCarouselRef"
-        class="md:hidden -mx-4 px-4 overflow-x-auto flex gap-3 pb-1 snap-x snap-mandatory"
+        class="experience-carousel md:hidden -mx-4 px-4 overflow-x-auto flex gap-3 pb-1 snap-x snap-mandatory"
         @touchstart="stopAutoplay"
         @touchend="startAutoplay"
         @mouseenter="stopAutoplay"
@@ -143,12 +144,12 @@ onUnmounted(() => {
             ? 'w-[82vw] max-w-[320px] shrink-0 snap-start opacity-100 translate-y-0 transition-all duration-700'
             : 'w-[82vw] max-w-[320px] shrink-0 snap-start opacity-0 translate-y-8'"
         >
-          <div class="rounded-xl border border-slate-800 bg-slate-950/70 backdrop-blur-sm p-3.5 h-full">
+          <div class="experience-card-mobile rounded-xl border border-slate-800 bg-slate-950/70 backdrop-blur-sm p-3.5 h-full">
             <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
               <h3 class="text-sm font-semibold text-white">
                 {{ experience.title }}
               </h3>
-              <span class="text-[11px] font-medium text-emerald-300 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+              <span class="experience-period text-[11px] font-medium text-emerald-300 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
                 {{ experience.period }}
               </span>
             </div>
@@ -172,7 +173,7 @@ onUnmounted(() => {
       </div>
 
       <div class="hidden md:block relative">
-        <div class="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px bg-gradient-to-b from-emerald-500/40 via-emerald-400/20 to-transparent"></div>
+        <div class="experience-timeline absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px bg-gradient-to-b from-emerald-500/40 via-emerald-400/20 to-transparent"></div>
 
         <div class="space-y-5 lg:space-y-6">
           <article
@@ -183,17 +184,17 @@ onUnmounted(() => {
               ? 'relative grid grid-cols-2 gap-6 lg:gap-8 items-start opacity-100 translate-y-0 transition-all duration-700'
               : 'relative grid grid-cols-2 gap-6 lg:gap-8 items-start opacity-0 translate-y-8'"
           >
-            <div class="absolute left-1/2 top-8 -translate-x-1/2 w-3 h-3 rounded-full bg-emerald-400 shadow-md shadow-emerald-500/40"></div>
+            <div class="experience-node absolute left-1/2 top-8 -translate-x-1/2 w-3 h-3 rounded-full bg-emerald-400 shadow-md shadow-emerald-500/40"></div>
 
             <div
               :class="index % 2 === 0 ? 'col-start-1 pr-6 lg:pr-8' : 'col-start-2 pl-6 lg:pl-8'"
-              class="rounded-2xl border border-slate-800 bg-slate-950/70 backdrop-blur-sm p-5 lg:p-6 hover:border-emerald-500/40 transition duration-300"
+              class="experience-card rounded-2xl border border-slate-800 bg-slate-950/70 backdrop-blur-sm p-5 lg:p-6 hover:border-emerald-500/40 transition duration-300"
             >
               <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
                 <h3 class="text-lg lg:text-xl font-semibold text-white">
                   {{ experience.title }}
                 </h3>
-                <span class="text-xs font-medium text-emerald-300 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+                <span class="experience-period text-xs font-medium text-emerald-300 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
                   {{ experience.period }}
                 </span>
               </div>

@@ -1,16 +1,10 @@
 <script setup>
-  import { ref, computed } from 'vue'
-
 import { projects } from '../data/projects'
 import ProjectCard from './ProjectCard.vue'
 import { useReveal } from '../composables/useReveal'
 
 const { isVisible, elementRef } = useReveal(0.3)
-const showAll = ref(false)
-
-const displayedProjects = computed(() => {
-  return showAll.value ? projects : projects.slice(0, 3)
-})
+const featuredProjects = projects.slice(0, 3)
 </script>
 
 <template>
@@ -32,7 +26,7 @@ const displayedProjects = computed(() => {
       <div class="grid md:grid-cols-3 gap-8">
 
         <ProjectCard
-          v-for="(project, index) in displayedProjects"
+          v-for="(project, index) in featuredProjects"
           :key="project.id"
           :id="project.id"
           :title="project.title"
@@ -47,14 +41,13 @@ const displayedProjects = computed(() => {
 
       </div>
 
-      <!-- Show more/less button -->
       <div v-if="projects.length > 3" class="flex justify-center mt-12">
-        <button
-          @click="showAll = !showAll"
+        <router-link
+          to="/projects"
           class="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-full font-medium transition-all duration-300 transform hover:scale-105 border border-slate-700 hover:border-slate-600 shadow-lg hover:shadow-slate-900/50"
         >
-          {{ showAll ? 'Voir moins' : 'Voir plus de projets' }}
-        </button>
+          Voir tous les projets
+        </router-link>
       </div>
 
     </div>

@@ -10,15 +10,16 @@ export const projects = [
     tech: ["Next.js", "Tailwind", "Node.js", "MongoDB"]
   },
   {
-    id: 2,
-    title: "MedDoc – Plateforme de Gestion de Cabinet Médicaux.",
-    description:
-      "Plateforme de gestion de dossiers médicaux, rendez-vous, prescriptions et salles d’attente virtuelles pour les professionnels de santé.",
-    image: "/meddoc.png",
-    liveUrl: "https://medoc-front.vercel.app/",
-    githubUrl: "https://github.com/Ouss77/Medoc-Front",
-    tech: ["MERN Stack", "Stripe", "REST API", "JWT"]
-  },
+  id: 2,
+  title: "EduPlatform – Plateforme de Formation Digitale",
+  description:
+    "Plateforme e-learning complète dédiée aux formations en développement full stack, digital marketing et design. Elle propose des cours en ligne et en présentiel avec supports PDF, vidéos, quiz et examens, ainsi qu’un système de gestion des étudiants, des présences, des classes et des professeurs par les administrateurs.",
+  image: "/edu.png",
+  liveUrl: "https://eduplatform-er.vercel.app/",
+  githubUrl: "", 
+  tech: ["NEXT.js", "REST API", "JWT", "NeonDB", "Vercel"]
+},
+ 
   {
     id: 3,
     title: "Nabou- Plateforme pour la gestion des salons de coiffure",
@@ -59,16 +60,16 @@ export const projects = [
     githubUrl: "https://github.com/Ouss77/fondation-Ecole",
     tech: ["Next.js", "Tailwind", "php", "ovh", "mysql"]
   }, 
-  //   {
-  //   id: 7,
-  //   title: "E-learning Platform – Plateforme d’apprentissage en ligne avec cours interactifs, quiz et suivi des progrès pour les étudiants.",
-  //   description:
-  //     "Plateforme d’apprentissage en ligne avec cours interactifs, quiz et suivi des progrès pour les étudiants.",
-  //   image: "/themes.jpg",
-  //   liveUrl: "",
-  //   githubUrl: "",
-  //   tech: ["React", "Jest", "Tailwind"]
-  // }, 
+   {
+    id: 7,
+    title: "MedDoc – Plateforme de Gestion de Cabinet Médicaux.",
+    description:
+      "Plateforme de gestion de dossiers médicaux, rendez-vous, prescriptions et salles d’attente virtuelles pour les professionnels de santé.",
+    image: "/meddoc.png",
+    liveUrl: "https://medoc-front.vercel.app/",
+    githubUrl: "https://github.com/Ouss77/Medoc-Front",
+    tech: ["MERN Stack", "Stripe", "REST API", "JWT"]
+  },
     {
     id: 8,
     title: "Green Construction – Site web pour une entreprise de construction durable.",

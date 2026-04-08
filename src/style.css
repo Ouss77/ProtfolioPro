@@ -91,6 +91,202 @@ html.light-mode #accueil .text-gray-300 {
   color: #ffffff !important;
 }
 
+html.light-mode .services-section,
+html.light-mode .experience-section {
+  background:
+    radial-gradient(circle at 12% 14%, rgba(16, 185, 129, 0.12), transparent 36%),
+    radial-gradient(circle at 90% 4%, rgba(14, 165, 233, 0.1), transparent 30%),
+    linear-gradient(180deg, #f8fafc, #eef5ff 62%, #f8fafc);
+}
+
+html.light-mode .services-title,
+html.light-mode .experience-title {
+  color: #0f172a !important;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+html.light-mode .services-subtitle,
+html.light-mode .experience-subtitle {
+  color: #475569 !important;
+}
+
+html.light-mode .services-section .service-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(241, 245, 249, 0.97)) !important;
+  border-color: rgba(148, 163, 184, 0.52) !important;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+  transform: translateY(0);
+}
+
+html.light-mode .services-section .service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.16), transparent 46%);
+  opacity: 0.6;
+  transition: opacity 0.35s ease;
+}
+
+html.light-mode .services-section .service-card::after {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.5), transparent);
+  opacity: 0.8;
+}
+
+html.light-mode .services-section .service-card:hover {
+  border-color: rgba(16, 185, 129, 0.42) !important;
+  box-shadow: 0 18px 40px rgba(16, 185, 129, 0.14);
+  transform: translateY(-4px);
+}
+
+html.light-mode .services-section .service-card:hover::before {
+  opacity: 1;
+}
+
+html.light-mode .services-section .service-index {
+  color: rgba(30, 41, 59, 0.14) !important;
+}
+
+html.light-mode .experience-carousel {
+  scrollbar-color: rgba(16, 185, 129, 0.45) rgba(226, 232, 240, 0.5);
+}
+
+html.light-mode .experience-card-mobile,
+html.light-mode .experience-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(248, 250, 252, 0.96)) !important;
+  border-color: rgba(148, 163, 184, 0.5) !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  transform: translateY(0);
+}
+
+html.light-mode .experience-card-mobile::before,
+html.light-mode .experience-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(circle at 88% 4%, rgba(14, 165, 233, 0.14), transparent 42%);
+  opacity: 0.66;
+  transition: opacity 0.35s ease;
+}
+
+html.light-mode .experience-card-mobile:hover,
+html.light-mode .experience-card:hover {
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  box-shadow: 0 16px 34px rgba(16, 185, 129, 0.12);
+  transform: translateY(-3px);
+}
+
+html.light-mode .experience-card-mobile:hover::before,
+html.light-mode .experience-card:hover::before {
+  opacity: 1;
+}
+
+html.light-mode .experience-timeline {
+  background-image: linear-gradient(to bottom, rgba(16, 185, 129, 0.5), rgba(16, 185, 129, 0.24), rgba(16, 185, 129, 0.04)) !important;
+}
+
+html.light-mode .experience-node {
+  background: #10b981 !important;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2), 0 0 0 8px rgba(15, 23, 42, 0.03);
+}
+
+html.light-mode .experience-period {
+  color: #047857 !important;
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.12), rgba(16, 185, 129, 0.08)) !important;
+  border-color: rgba(16, 185, 129, 0.36) !important;
+}
+
+html.light-mode [data-section='skills'] {
+  background:
+    radial-gradient(circle at 8% 10%, rgba(16, 185, 129, 0.11), transparent 36%),
+    radial-gradient(circle at 92% 2%, rgba(14, 165, 233, 0.12), transparent 30%),
+    linear-gradient(180deg, #f8fafc, #edf4ff 58%, #f8fafc) !important;
+}
+
+html.light-mode .skills-title {
+  color: #0f172a !important;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+html.light-mode .skills-subtitle {
+  color: #1e293b !important;
+}
+
+html.light-mode .skills-carousel {
+  scrollbar-color: rgba(16, 185, 129, 0.45) rgba(226, 232, 240, 0.55);
+}
+
+html.light-mode .skill-chip {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(241, 245, 249, 0.96)) !important;
+  border-color: rgba(148, 163, 184, 0.5) !important;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  transform: translateY(0);
+}
+
+html.light-mode .skill-chip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(circle at 92% 8%, rgba(16, 185, 129, 0.16), transparent 45%);
+  opacity: 0.72;
+  transition: opacity 0.3s ease;
+}
+
+html.light-mode .skill-chip::after {
+  content: '';
+  position: absolute;
+  left: 0.8rem;
+  right: 0.8rem;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.48), transparent);
+}
+
+html.light-mode .skill-chip:hover {
+  border-color: rgba(16, 185, 129, 0.42) !important;
+  box-shadow: 0 14px 30px rgba(16, 185, 129, 0.14);
+  transform: translateY(-3px);
+}
+
+html.light-mode .skill-chip:hover::before {
+  opacity: 1;
+}
+
+html.light-mode .skill-name {
+  color: #0f172a !important;
+}
+
+html.light-mode .skill-fallback {
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.16), rgba(16, 185, 129, 0.1)) !important;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  color: #047857 !important;
+}
+
+html.light-mode .skill-logo img {
+  filter: saturate(1.04) contrast(1.02);
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.4s ease;

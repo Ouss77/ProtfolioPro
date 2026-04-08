@@ -45,10 +45,11 @@ const skillSections = computed(() => [
     id="competences"
     ref="elementRef"
     class="py-24 md:py-28 bg-slate-950 text-white"
+    data-section="skills"
   >
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-14 md:mb-16">
+      <h2 class="skills-title text-3xl md:text-4xl font-bold text-center mb-14 md:mb-16">
         Compétences
       </h2>
 
@@ -61,11 +62,11 @@ const skillSections = computed(() => [
             ? 'opacity-100 translate-y-0 transition-all duration-700'
             : 'opacity-0 translate-y-6'"
         >
-          <h3 class="text-xl md:text-2xl font-semibold mb-5 md:mb-6 text-white/95">
+          <h3 class="skills-subtitle text-xl md:text-2xl font-semibold mb-5 md:mb-6 text-white/95">
             {{ section.title }}
           </h3>
 
-          <div class="md:hidden -mx-4 px-4 overflow-x-auto flex gap-2.5 pb-2 snap-x snap-mandatory">
+          <div class="skills-carousel md:hidden -mx-4 px-4 overflow-x-auto flex gap-2.5 pb-2 snap-x snap-mandatory">
             <SkillCard
               v-for="skill in section.skills"
               :key="skill.name"

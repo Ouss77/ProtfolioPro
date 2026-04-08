@@ -38,6 +38,7 @@ const { isVisible, elementRef } = useReveal(0.3)
     :class="isVisible
       ? 'py-32 bg-slate-950 text-white opacity-100 translate-y-0 transition-all duration-1000'
       : 'py-32 bg-slate-950 text-white opacity-0 translate-y-10'"
+    class="services-section"
   >
     <div class="max-w-7xl mx-auto px-6">
 
@@ -46,10 +47,10 @@ const { isVisible, elementRef } = useReveal(0.3)
         <p class="text-emerald-400 uppercase tracking-widest text-sm mb-3">
           Services
         </p>
-        <h2 class="text-5xl font-bold mb-6">
+        <h2 class="services-title text-5xl font-bold mb-6">
           Services
         </h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">
+        <p class="services-subtitle text-gray-400 max-w-2xl mx-auto">
           Des solutions techniques alignées avec vos objectifs business.
         </p>
       </div>
@@ -64,10 +65,11 @@ const { isVisible, elementRef } = useReveal(0.3)
           :class="isVisible
             ? 'group relative p-12 rounded-3xl border border-slate-800 bg-slate-900/40 backdrop-blur-xl hover:border-emerald-500/40 transition-all duration-700 opacity-100 translate-y-0'
             : 'group relative p-12 rounded-3xl border border-slate-800 bg-slate-900/40 opacity-0 translate-y-10'"
+          class="service-card"
         >
 
           <!-- Big Number -->
-          <span class="absolute top-6 right-8 text-6xl font-bold text-slate-800 group-hover:text-emerald-500/20 transition duration-500">
+          <span class="service-index absolute top-6 right-8 text-6xl font-bold text-slate-800 group-hover:text-emerald-500/20 transition duration-500">
             {{ service.id }}
           </span>
 

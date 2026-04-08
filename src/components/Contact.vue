@@ -70,8 +70,8 @@ const handleSubmit = async () => {
           </p>
 
           <div class="space-y-4 text-gray-300">
-            <p>Email : contact@email.com</p>
-            <p>Téléphone : +33 6 00 00 00 00</p>
+            <p>Email : oussamasassour@gmail.com</p>
+            <p>Téléphone : +212699945245</p>
           </div>
         </div>
 
