@@ -3,14 +3,14 @@ import { useReveal } from '../composables/useReveal'
 
 const education = [
   {
-    year: "2020 - 2023",
-    degree: "Master en Informatique",
-    school: "Université XYZ"
+    year: "2019 - 2021",
+    degree: "Master en Big Data & Management",
+    school: "Université de Bahçeşehir, Istanbul (Turquie)"
   },
   {
-    year: "2017 - 2020",
-    degree: "Licence en Génie Logiciel",
-    school: "Université ABC"
+    year: "2015 - 2018",
+    degree: "Licence en Génie Informatique",
+    school: "Faculté des Sciences et Techniques de Fès (Maroc)"
   }
 ]
 

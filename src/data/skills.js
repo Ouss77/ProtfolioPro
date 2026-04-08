@@ -3,9 +3,6 @@ export const skillsByCategory = {
     {
       name: "React",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-    },    {
-      name: "Vue.js",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
     },
     {
       name: "Next.js",
@@ -26,8 +23,34 @@ export const skillsByCategory = {
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
     },
     {
-      name: "php",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+      name: "REST APIs",
+      logo: ""
+    }
+  ],
+  DevOps: [
+    {
+      name: "Git",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+    },
+    {
+      name: "GitHub",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+    },
+    {
+      name: "Docker",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+    },
+    {
+      name: "Vercel",
+      logo: "https://cdn.simpleicons.org/vercel/ffffff"
+    },
+    {
+      name: "OVH",
+      logo: "https://cdn.simpleicons.org/ovh/ffffff"
+    },
+    {
+      name: "Postman",
+      logo: "https://cdn.simpleicons.org/postman/ffffff"
     }
   ],
   ML: [
@@ -35,23 +58,21 @@ export const skillsByCategory = {
       name: "Python",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
     },    {
-      name: "Numpy",
+      name: "NumPy",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"
     }   ,  {
       name: "Pandas",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
     }
   ],
-  DevOps: [
+  Other: [
     {
-      name: "Docker",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
-    } ,   {
-      name: "Git",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-    } ,   {
-      name: "Github",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+      name: "Vue.js",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+    },
+    {
+      name: "PHP",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
     }
   ]
 }

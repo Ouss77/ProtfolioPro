@@ -5,6 +5,7 @@ import Projects from '../components/Projects.vue'
 import Skills from '../components/Skills.vue'
 import About from '../components/About.vue'
 import Services from '../components/Services.vue'
+import Experience from '../components/Experience.vue'
 import Education from '../components/Education.vue'
 import Contact from '../components/Contact.vue'
 
@@ -16,7 +17,7 @@ const currentYear = new Date().getFullYear()
     <Navbar />
     <Hero
       name="Oussama Sassour"
-      title="Développeur Full-Stack · Expérience en startup · Mentor technique"
+      title="Full-Stack Developer · CTO Early-Stage · Coach Bootcamp"
       description="Je conçois des solutions web et SaaS performantes, en alliant architecture scalable, vision produit et expérience utilisateur.
 En parallèle, je forme et accompagne des développeurs en bootcamp vers l’excellence technique."
     />
@@ -24,6 +25,7 @@ En parallèle, je forme et accompagne des développeurs en bootcamp vers l’exc
     <Projects />
     <Skills />
     <Services />
+    <Experience />
     <Education />
     <Contact />
 

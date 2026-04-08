@@ -1,30 +1,32 @@
 <script setup>
-import { useTilt } from '../composables/useTilt'
-
 defineProps({
   name: String,
   logo: String
 })
-
-const { cardRef, handleMouseMove, resetTilt } = useTilt()
-
 </script>
 
 <template>
-<div
-  ref="cardRef"
-  @mousemove="handleMouseMove"
-  @mouseleave="resetTilt"
-  style="transform-style: preserve-3d;"
-  class="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center transition-all duration-300 shadow-lg"
->
+<div class="group flex items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl border border-slate-800 bg-slate-900/85 px-2.5 md:px-4 py-2 md:py-3 min-h-[46px] md:min-h-[64px] shadow-sm transition duration-300 hover:border-emerald-500/35 hover:bg-slate-900">
+  <div
+    v-if="logo"
+    class="flex h-5 w-5 md:h-8 md:w-8 shrink-0 items-center justify-center"
+  >
     <img
-        :src="logo"
-        :alt="name"
-        class="w-16 h-16 mx-auto mb-4"
+      :src="logo"
+      :alt="name"
+      class="h-5 w-5 md:h-8 md:w-8 object-contain"
     />
-    <h3 class="text-lg font-semibold">
-        {{ name }}
-    </h3>
+  </div>
+
+  <div
+    v-else
+    class="flex h-5 w-5 md:h-8 md:w-8 shrink-0 items-center justify-center rounded-full bg-slate-800 text-[8px] md:text-[10px] font-bold uppercase tracking-wide text-emerald-300"
+  >
+    API
+  </div>
+
+  <h3 class="text-[12px] md:text-lg font-medium leading-tight text-white/95 whitespace-nowrap">
+    {{ name }}
+  </h3>
 </div>
 </template>
