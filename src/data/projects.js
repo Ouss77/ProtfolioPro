@@ -13,11 +13,11 @@ export const projects = [
   id: 2,
   title: "EduPlatform – Plateforme de Formation Digitale",
   description:
-    "Plateforme e-learning complète dédiée aux formations en développement full stack, digital marketing et design. Elle propose des cours en ligne et en présentiel avec supports PDF, vidéos, quiz et examens, ainsi qu’un système de gestion des étudiants, des présences, des classes et des professeurs par les administrateurs.",
+    "Plateforme e-learning complète dédiée aux formations en développement full stack, digital marketing et design. Elle propose des cours en ligne et en présentiel avec supports PDF, vidéos, quiz et examens, ainsi qu’un système de gestion des étudiants, des présences, des classes et des professeurs par les administrateurs.-Ce projet a été réalisé avec deux autres développeurs freelances dans un cadre collaboratif. J’y occupais le rôle de chef de projet et de testeur, en assurant le suivi via des réunions régulières et une organisation en sprints. J’étais également responsable de l’hébergement et de la mise en place des pipelines CI/CD-.",
   image: "/edu.png",
   liveUrl: "https://eduplatform-er.vercel.app/",
-  githubUrl: "", 
-  tech: ["NEXT.js", "REST API", "JWT", "NeonDB", "Vercel"]
+  githubUrl: "https://eduplatform-er.vercel.app/", 
+  tech: ["NEXT.js", "REST API", "Postman", "SQL", "Vercel", "Tailwind"]
 },
  
   {

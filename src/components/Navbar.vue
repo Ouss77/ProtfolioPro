@@ -15,32 +15,57 @@ const navItems = [
   { id: 'contact', label: 'Contact' }
 ]
 
-let observer
+const setActiveSection = (id) => {
+  if (navItems.some(item => item.id === id)) {
+    activeSection.value = id
+  }
+}
+
+const updateActiveFromScroll = () => {
+  const sectionIds = navItems.map(item => item.id)
+  const sections = sectionIds
+    .map(id => document.getElementById(id))
+    .filter(Boolean)
+
+  if (!sections.length) {
+    return
+  }
+
+  const offset = window.scrollY + window.innerHeight * 0.35
+  let currentId = sectionIds[0]
+
+  sections.forEach((section) => {
+    if (section.offsetTop <= offset) {
+      currentId = section.id
+    }
+  })
+
+  setActiveSection(currentId)
+}
+
+const handleHashChange = () => {
+  const id = window.location.hash.replace('#', '')
+  if (id) {
+    setActiveSection(id)
+  }
+}
+
+const handleNavClick = (id) => {
+  setActiveSection(id)
+  closeMobileMenu()
+}
 
 onMounted(() => {
-  const sections = document.querySelectorAll('section[id]')
+  handleHashChange()
+  updateActiveFromScroll()
 
-  observer = new IntersectionObserver(
-    (entries) => {
-      const visibleEntry = entries
-        .filter(entry => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-
-      if (visibleEntry?.target?.id) {
-        activeSection.value = visibleEntry.target.id
-      }
-    },
-    {
-      threshold: [0.35, 0.6, 0.8],
-      rootMargin: '-20% 0px -35% 0px'
-    }
-  )
-
-  sections.forEach(section => observer.observe(section))
+  window.addEventListener('scroll', updateActiveFromScroll, { passive: true })
+  window.addEventListener('hashchange', handleHashChange)
 })
 
 onUnmounted(() => {
-  observer?.disconnect()
+  window.removeEventListener('scroll', updateActiveFromScroll)
+  window.removeEventListener('hashchange', handleHashChange)
 })
 
 const closeMobileMenu = () => {
@@ -63,6 +88,7 @@ const closeMobileMenu = () => {
             :href="`#${item.id}`"
             class="relative transition duration-300"
             :class="activeSection === item.id ? 'text-emerald-400' : 'hover:text-emerald-400'"
+            @click="handleNavClick(item.id)"
           >
             {{ item.label }}
           </a>
@@ -72,8 +98,8 @@ const closeMobileMenu = () => {
       <!-- Desktop CTA -->
       <div class="hidden md:block">
         <a
-          href="/CV FR Oussama Sassour.pdf"
-          download="CV FR Oussama Sassour.pdf"
+          href="/CV-OUSSAMA-SASS.pdf"
+          download="CV-OUSSAMA-SASS.pdf"
           class="px-5 py-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-black font-semibold hover:opacity-90 transition hover:scale-105 duration-300 inline-block"
         >
           Télécharger CV
@@ -101,13 +127,13 @@ const closeMobileMenu = () => {
           :href="`#${item.id}`"
           class="transition"
           :class="activeSection === item.id ? 'text-emerald-400' : 'hover:text-emerald-400'"
-          @click="closeMobileMenu"
+          @click="handleNavClick(item.id)" 
         >
           {{ item.label }}
         </a>
         <a
-          href="/CV OUSSAMA SASS.pdf"
-          download="CV OUSSAMA SASS.pdf"
+          href="/CV-OUSSAMA-SASS.pdf"
+          download="CV-OUSSAMA-SASS.pdf"
           class="mt-4 px-5 py-3 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-black font-semibold inline-block text-center"
         >
           Télécharger CV

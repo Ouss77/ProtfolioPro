@@ -17,7 +17,7 @@ const currentYear = new Date().getFullYear()
     <Navbar />
     <Hero
       name="Oussama Sassour"
-      title="Full-Stack Developer · CTO Early-Stage · Coach Bootcamp"
+      title="Full-Stack Developer · SaaS Builder · Tech Coach"
       description="Je conçois des solutions web et SaaS performantes, en alliant architecture scalable, vision produit et expérience utilisateur.
 En parallèle, je forme et accompagne des développeurs en bootcamp vers l’excellence technique."
     />

@@ -287,6 +287,150 @@ html.light-mode .skill-logo img {
   filter: saturate(1.04) contrast(1.02);
 }
 
+html.light-mode .projects-section {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(16, 185, 129, 0.1), transparent 34%),
+    radial-gradient(circle at 88% 4%, rgba(14, 165, 233, 0.08), transparent 30%),
+    linear-gradient(180deg, #ffffff, #f8fbff 58%, #ffffff) !important;
+  color: #0f172a !important;
+}
+
+html.light-mode .projects-page {
+  background:
+    radial-gradient(circle at 10% 8%, rgba(16, 185, 129, 0.1), transparent 34%),
+    radial-gradient(circle at 85% 0%, rgba(14, 165, 233, 0.08), transparent 30%),
+    linear-gradient(180deg, #ffffff, #f8fbff 58%, #ffffff) !important;
+  color: #0f172a !important;
+}
+
+html.light-mode .projects-page .projects-glow {
+  opacity: 0.14;
+}
+
+html.light-mode .projects-page h1,
+html.light-mode .projects-page .text-white {
+  color: #0f172a !important;
+}
+
+html.light-mode .projects-page p,
+html.light-mode .projects-page .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light-mode .projects-page .text-emerald-300 {
+  color: #047857 !important;
+}
+
+html.light-mode .projects-page .text-emerald-400 {
+  color: #047857 !important;
+}
+
+html.light-mode .projects-title {
+  color: #0f172a !important;
+  letter-spacing: -0.02em;
+}
+
+html.light-mode .projects-kicker {
+  color: #047857 !important;
+}
+
+html.light-mode .project-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.97)) !important;
+  border-color: rgba(148, 163, 184, 0.45) !important;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.09) !important;
+}
+
+html.light-mode .projects-page .project-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(248, 250, 252, 0.98)) !important;
+  border-color: rgba(148, 163, 184, 0.46) !important;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.1) !important;
+}
+
+html.light-mode .projects-page .project-card-title {
+  color: #0f172a !important;
+}
+
+html.light-mode .projects-page .project-card-description {
+  color: #334155 !important;
+}
+
+html.light-mode .projects-page .project-tech-pill {
+  background: linear-gradient(180deg, rgba(240, 253, 250, 0.95), rgba(236, 253, 245, 0.9)) !important;
+  color: #047857 !important;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+}
+
+html.light-mode .project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(circle at 90% 0%, rgba(16, 185, 129, 0.14), transparent 45%);
+  opacity: 0.7;
+  transition: opacity 0.35s ease;
+}
+
+html.light-mode .project-card:hover {
+  border-color: rgba(16, 185, 129, 0.44) !important;
+  box-shadow: 0 18px 38px rgba(16, 185, 129, 0.14) !important;
+}
+
+html.light-mode .project-card:hover::before {
+  opacity: 1;
+}
+
+html.light-mode .project-card-title {
+  color: #0f172a !important;
+}
+
+html.light-mode .project-card-description {
+  color: #334155 !important;
+}
+
+html.light-mode .project-tech-pill {
+  background: linear-gradient(180deg, rgba(240, 253, 250, 0.95), rgba(236, 253, 245, 0.9)) !important;
+  color: #047857 !important;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+}
+
+html.light-mode .project-btn-live {
+  color: #022c22 !important;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.24);
+}
+
+html.light-mode .project-btn-code {
+  border-color: rgba(100, 116, 139, 0.42) !important;
+  color: #0f172a !important;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+html.light-mode .project-btn-code:hover {
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  color: #047857 !important;
+}
+
+html.light-mode .project-btn-disabled {
+  border-color: rgba(148, 163, 184, 0.45) !important;
+  color: #94a3b8 !important;
+  background: rgba(248, 250, 252, 0.95);
+}
+
+html.light-mode .projects-cta {
+  background: linear-gradient(180deg, #0f172a, #1e293b) !important;
+  border-color: rgba(30, 41, 59, 0.75) !important;
+  color: #f8fafc !important;
+  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.2);
+}
+
+html.light-mode .projects-cta:hover {
+  background: linear-gradient(180deg, #111827, #0f172a) !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.4s ease;
