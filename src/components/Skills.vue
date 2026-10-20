@@ -8,7 +8,7 @@ const { isVisible, elementRef } = useReveal(0.2)
 
 const skillSections = computed(() => [
   {
-    title: 'Technologies principales',
+    title: 'Core Technologies',
     skills: [
       skillsByCategory.Frontend.find(skill => skill.name === 'React'),
       skillsByCategory.Frontend.find(skill => skill.name === 'Next.js'),
@@ -18,7 +18,7 @@ const skillSections = computed(() => [
     ].filter(Boolean)
   },
   {
-    title: 'Outils & environnement',
+    title: 'Tools & Platforms',
     skills: [
       skillsByCategory.DevOps.find(skill => skill.name === 'Git'),
       skillsByCategory.DevOps.find(skill => skill.name === 'GitHub'),
@@ -30,11 +30,11 @@ const skillSections = computed(() => [
     ].filter(Boolean)
   },
   {
-    title: 'Data & IA',
+    title: 'Data & AI',
     skills: skillsByCategory.ML
   },
   {
-    title: 'Autres',
+    title: 'Other Technologies',
     skills: skillsByCategory.Other
   }
 ])
@@ -50,7 +50,7 @@ const skillSections = computed(() => [
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
       <h2 class="skills-title text-3xl md:text-4xl font-bold text-center mb-14 md:mb-16">
-        Compétences
+        Skills
       </h2>
 
       <div class="space-y-10 md:space-y-12">

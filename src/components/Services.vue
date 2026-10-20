@@ -6,25 +6,25 @@ const services = [
     id: "01",
     title: "Full Stack Development",
     description:
-      "Développement d’applications web modernes, performantes et scalables avec une architecture robuste."
+      "Building modern, high-performance, scalable web applications with robust architecture."
   },
   {
     id: "02",
     title: "SaaS & MVP",
     description:
-      "Conception et lancement rapide de produits SaaS orientés marché et utilisateurs."
+      "Designing and rapidly launching SaaS products built around market and user needs."
   },
   {
     id: "03",
     title: "Machine Learning",
     description:
-      "Intégration de modèles d’IA et automatisation intelligente des processus métiers."
+      "Integrating AI models and intelligently automating business processes."
   },
   {
     id: "04",
     title: "DevOps & Cloud",
     description:
-      "Mise en production sécurisée, CI/CD, monitoring et optimisation des performances."
+      "Secure deployments, CI/CD, monitoring, and performance optimization."
   }
 ]
 
@@ -51,7 +51,7 @@ const { isVisible, elementRef } = useReveal(0.3)
           Services
         </h2>
         <p class="services-subtitle text-gray-400 max-w-2xl mx-auto">
-          Des solutions techniques alignées avec vos objectifs business.
+          Technical solutions tailored to your business goals.
         </p>
       </div>
 

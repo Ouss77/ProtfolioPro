@@ -22,14 +22,14 @@ const handleSubmit = async () => {
       'Zqr76foxjzXe1e-k2'
     )
 
-    alert("Message envoyé avec succès ✅")
+    alert("Message sent successfully ✅")
 
     name.value = ''
     email.value = ''
     message.value = ''
 
   } catch (error) {
-    alert("Erreur lors de l'envoi ❌")
+    alert("There was an error sending your message ❌")
     console.error(error)
   }
 }
@@ -53,7 +53,7 @@ const handleSubmit = async () => {
           Contact
         </h2>
         <p class="text-gray-400 max-w-2xl mx-auto">
-          Discutons de votre projet et construisons quelque chose d’exceptionnel.
+          Let’s discuss your project and build something exceptional.
         </p>
       </div>
 
@@ -62,16 +62,16 @@ const handleSubmit = async () => {
         <!-- LEFT -->
         <div>
           <h3 class="text-2xl font-semibold mb-8 text-emerald-400">
-            Travaillons ensemble
+            Let’s work together
           </h3>
 
           <p class="text-gray-400 mb-6">
-            Disponible pour missions freelance, collaboration ou opportunités CDI.
+            Available for freelance work, collaborations, and full-time opportunities.
           </p>
 
           <div class="space-y-4 text-gray-300">
             <p>Email : oussamasassour@gmail.com</p>
-            <p>Téléphone : +212699945245</p>
+            <p>Phone: +212699945245</p>
           </div>
         </div>
 
@@ -85,7 +85,7 @@ const handleSubmit = async () => {
             <input
               v-model="name"
               type="text"
-              placeholder="Votre nom"
+              placeholder="Your name"
               class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:border-emerald-500 focus:outline-none"
             />
           </div>
@@ -94,7 +94,7 @@ const handleSubmit = async () => {
             <input
               v-model="email"
               type="email"
-              placeholder="Votre email"
+              placeholder="Your email"
               class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:border-emerald-500 focus:outline-none"
             />
           </div>
@@ -103,7 +103,7 @@ const handleSubmit = async () => {
             <textarea
               v-model="message"
               rows="5"
-              placeholder="Votre message"
+              placeholder="Your message"
               class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:border-emerald-500 focus:outline-none"
             ></textarea>
           </div>
@@ -112,7 +112,7 @@ const handleSubmit = async () => {
             type="submit"
             class="w-full bg-emerald-500 text-black font-semibold py-3 rounded-lg hover:bg-emerald-400 transition duration-300"
           >
-            Envoyer le message
+            Send message
           </button>
 
         </form>

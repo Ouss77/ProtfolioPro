@@ -5,13 +5,13 @@ const isOpen = ref(false)
 const activeSection = ref('accueil')
 
 const navItems = [
-  { id: 'accueil', label: 'Accueil' },
-  { id: 'about', label: 'À propos' },
-  { id: 'projets', label: 'Projets' },
-  { id: 'competences', label: 'Compétences' },
+  { id: 'accueil', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'projets', label: 'Projects' },
+  { id: 'competences', label: 'Skills' },
   { id: 'services', label: 'Services' },
-  { id: 'experiences', label: 'Expériences' },
-  { id: 'education', label: 'Parcours' },
+  { id: 'experiences', label: 'Experience' },
+  { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' }
 ]
 
@@ -102,7 +102,7 @@ const closeMobileMenu = () => {
           download="CV-OUSSAMA-SASS.pdf"
           class="px-5 py-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-black font-semibold hover:opacity-90 transition hover:scale-105 duration-300 inline-block"
         >
-          Télécharger CV
+          Download CV
         </a>
       </div>
 
@@ -136,7 +136,7 @@ const closeMobileMenu = () => {
           download="CV-OUSSAMA-SASS.pdf"
           class="mt-4 px-5 py-3 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-black font-semibold inline-block text-center"
         >
-          Télécharger CV
+          Download CV
         </a>
       </ul>
     </div>

@@ -21,6 +21,8 @@ const knownSkillLogos = Object.values(skillsByCategory)
 
 const techLogoOverrides = {
   tailwind: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+  nextjs: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+  typescript: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
   mongodb: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
   mysql: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
   javascript: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
@@ -29,12 +31,13 @@ const techLogoOverrides = {
   jest: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg',
   jsonserver: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/json/json-original.svg',
   stripe: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/stripe/stripe-original.svg',
-  jwt: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jsonwebtokens/jsonwebtokens-original.svg',
+  jwt: 'https://cdn.simpleicons.org/jsonwebtokens',
   mernstack: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
   restapi: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg',
   react: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
   ovh: 'https://cdn.simpleicons.org/ovhcloud/123f6d',
   vercel: 'https://cdn.simpleicons.org/vercel',
+  render: 'https://cdn.simpleicons.org/render',
   matplotlib: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg',
   Sciketlearn: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg',
 }
@@ -79,7 +82,7 @@ function getTechInitials(name = '') {
   <div class="min-h-screen bg-slate-950 text-white p-10">
 
     <router-link to="/" class="text-emerald-400 mb-6 inline-block">
-      ← Retour
+      ← Back
     </router-link>
 
     <div v-if="project">
@@ -91,7 +94,7 @@ function getTechInitials(name = '') {
       <div class="grid lg:grid-cols-[minmax(0,1fr)_340px] gap-6 items-start mb-6">
         <img
           :src="project.image"
-          :alt="`Capture du projet ${project.title}`"
+          :alt="`Screenshot of ${project.title}`"
           class="w-full max-w-2xl rounded-xl border border-slate-800"
         />
 
@@ -99,10 +102,10 @@ function getTechInitials(name = '') {
           <div class="tech-panel-glow" aria-hidden="true"></div>
 
           <h2 class="text-lg font-semibold text-emerald-300 mb-1 tracking-wide relative z-10">
-            Technologies utilisees
+            Technologies Used
           </h2>
           <p class="text-xs text-slate-300/80 mb-4 relative z-10">
-            Stack et outils utilises dans ce projet
+            Technology stack and tools used in this project
           </p>
 
           <div class="grid grid-cols-2 gap-3 relative z-10">
@@ -160,7 +163,7 @@ function getTechInitials(name = '') {
     </div>
 
     <div v-else class="text-red-500 text-xl">
-      Projet introuvable.
+      Project not found.
     </div>
 
   </div>
@@ -239,4 +242,3 @@ function getTechInitials(name = '') {
   }
 }
 </style>
-

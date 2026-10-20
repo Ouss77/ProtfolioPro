@@ -17,16 +17,16 @@ const { isVisible, elementRef } = useReveal(0.3)
       <!-- Title -->
       <div class="text-center mb-20">
         <p class="text-emerald-400 uppercase tracking-widest text-sm mb-3">
-          À propos
+          About
         </p>
 
         <h2 class="text-5xl font-bold mb-4">
-          Qui suis-je ?
+          Who am I?
         </h2>
 
         <p class="text-gray-400 max-w-2xl mx-auto">
-          Passionné par la technologie et l'innovation, je transforme des idées
-          en produits digitaux performants.
+          Passionate about technology and innovation, I turn ideas into
+          high-performing digital products.
         </p>
       </div>
 
@@ -48,7 +48,7 @@ const { isVisible, elementRef } = useReveal(0.3)
 
             <!-- Experience Badge -->
             <div class="absolute bottom-0 right-0 bg-emerald-500 text-black px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-              5+ ans exp.
+              5+ years of experience
             </div>
           </div>
 
@@ -58,19 +58,19 @@ const { isVisible, elementRef } = useReveal(0.3)
         <div>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-Développeur  <span class="text-emerald-400 font-semibold">
+Developer  <span class="text-emerald-400 font-semibold">
               Full Stack
-            </span>et entrepreneur, j’évolue à l’intersection entre technologie, produit et transmission.
-Mon parcours m’a amené à concevoir des solutions digitales de A à Z : de l’étude de marché à l’architecture technique, jusqu’à l’optimisation de l’expérience utilisateur.
-En parallèle, j’accompagne des développeurs en bootcamp en tant que coach formateur, avec une approche orientée rigueur, autonomie et compréhension réelle des concepts.
-Aujourd’hui, je cherche à contribuer à des projets ambitieux — en freelance ou en équipe — où la technique sert une vision claire et durable.           
+            </span>and entrepreneur, I work at the intersection of technology, product, and education.
+My experience has led me to build end-to-end digital solutions, from market research and technical architecture to user experience optimization.
+Alongside my work, I coach developers in bootcamps, with a focus on rigor, independence, and a genuine understanding of the fundamentals.
+I’m now looking to contribute to ambitious projects, as a freelancer or part of a team, where technology supports a clear, lasting vision.
 
           </p>
 
           <p class="text-gray-400 leading-relaxed mb-8">
-            Mon approche combine expertise technique et vision produit.
-            De la conception à la mise en production,
-            je m’assure que chaque projet atteint l’excellence.
+            My approach combines technical expertise with product thinking.
+            From initial design to production, I make sure every project
+            meets a high standard.
           </p>
 
           <!-- Tags -->
@@ -98,22 +98,22 @@ Aujourd’hui, je cherche à contribuer à des projets ambitieux — en freelanc
 
         <div>
           <h3 class="text-4xl font-bold text-emerald-400">10+</h3>
-          <p class="text-gray-500 text-sm mt-2">Projets réalisés</p>
+          <p class="text-gray-500 text-sm mt-2">Projects completed</p>
         </div>
 
         <div>
           <h3 class="text-4xl font-bold text-emerald-400">10+</h3>
-          <p class="text-gray-500 text-sm mt-2">Technologies maîtrisées </p>
+          <p class="text-gray-500 text-sm mt-2">Technologies mastered</p>
         </div>
 
         <div>
           <h3 class="text-4xl font-bold text-emerald-400">5+</h3>
-          <p class="text-gray-500 text-sm mt-2">Clients satisfaits</p>
+          <p class="text-gray-500 text-sm mt-2">Happy clients</p>
         </div>
 
         <div>
           <h3 class="text-4xl font-bold text-emerald-400">99%</h3>
-          <p class="text-gray-500 text-sm mt-2">Taux de satisfaction</p>
+          <p class="text-gray-500 text-sm mt-2">Satisfaction rate</p>
         </div>
 
       </div>

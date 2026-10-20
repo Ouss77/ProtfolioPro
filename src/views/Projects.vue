@@ -16,7 +16,7 @@ import ProjectCard from '../components/ProjectCard.vue'
         class="inline-flex items-center gap-2 text-sm text-emerald-300 hover:text-emerald-200 transition-colors duration-300 mb-8"
       >
         <span aria-hidden="true">←</span>
-        Retour a l'accueil
+        Back to home
       </router-link>
 
       <div class="text-center mb-12 md:mb-16">
@@ -24,10 +24,10 @@ import ProjectCard from '../components/ProjectCard.vue'
           Portfolio
         </p>
         <h1 class="text-3xl md:text-5xl font-bold mb-4 text-white">
-          Tous mes projets
+          All Projects
         </h1>
         <p class="text-slate-300 max-w-2xl mx-auto text-sm md:text-base">
-          Une selection complete de mes realisations, du SaaS au machine learning.
+          A complete selection of my work, from SaaS platforms to machine learning.
         </p>
       </div>
 

@@ -4,55 +4,55 @@ import { useReveal } from '../composables/useReveal'
 
 const experiences = [
   {
-    title: 'Développeur Full-Stack Freelance',
-    period: 'Mai 2025 - Présent',
+    title: 'Freelance Full-Stack Developer',
+    period: 'May 2025 - Present',
     description:
-      'Conception et développement de solutions SaaS avec pilotage complet des projets.',
+      'Designing and building SaaS solutions while managing projects end to end.',
     highlights: [
-      'Conception et développement d\'applications SaaS, dont DoctoNest et Nabou.',
-      'Pilotage des projets de l\'architecture au déploiement en production.',
-      'Automatisation de processus métiers pour améliorer la productivité.'
+      'Designed and built SaaS applications, including DoctoNest and Nabou.',
+      'Managed projects from architecture through production deployment.',
+      'Automated business processes to improve productivity.'
     ]
   },
   {
-    title: 'Développeur Web & Formateur - GoMyCode',
+    title: 'Web Developer & Instructor - GoMyCode',
     period: '2023 - 2026',
     description:
-      'Formation et accompagnement technique de développeurs sur des stacks Full-Stack modernes.',
+      'Trained and mentored developers working with modern full-stack technologies.',
     highlights: [
-      'Formation en MERN, Next.js et SQL.',
-      'Mentorat sur plus de 50 projets avec code review et debugging.',
-      'Création de contenus pédagogiques.'
+      'Taught MERN, Next.js, and SQL.',
+      'Mentored more than 50 projects through code reviews and debugging.',
+      'Created educational content.'
     ]
   },
   {
-    title: 'Développeur Web & Data Analyst - Intellia',
+    title: 'Web Developer & Data Analyst - Intellia',
     period: '2022',
     description:
-      'Développement d\'une application data et automatisation de traitements analytiques.',
+      'Built a data application and automated analytical workflows.',
     highlights: [
-      'Développement d\'une application de gestion de données.',
-      'Automatisation et analyse de données avec Python.'
+      'Developed a data management application.',
+      'Automated and analyzed data with Python.'
     ]
   },
   {
-    title: 'Coordinateur & Responsable de Formation',
+    title: 'Training Coordinator & Manager',
     period: '2025',
     description:
-      'Coordination de programmes de formation et encadrement d\'équipes pédagogiques.',
+      'Coordinated training programs and led instructional teams.',
     highlights: [
-      'Coordination de programmes de formation et suivi des parcours.',
-      'Management d\'équipe pédagogique.'
+      'Coordinated training programs and monitored learner progress.',
+      'Managed an instructional team.'
     ]
   },
   {
-    title: 'Développeur Machine Learning (Stage)',
+    title: 'Machine Learning Developer (Internship)',
     period: '2021',
     description:
-      'Conception de solutions de machine learning orientées analyse de texte.',
+      'Designed machine learning solutions for text analysis.',
     highlights: [
-      'Conception d\'un modèle d\'analyse de sentiments.',
-      'Implémentation d\'algorithmes de machine learning.'
+      'Designed a sentiment analysis model.',
+      'Implemented machine learning algorithms.'
     ]
   }
 ]
@@ -118,13 +118,13 @@ onUnmounted(() => {
     <div class="max-w-[84rem] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 md:mb-12">
         <p class="text-emerald-400 uppercase tracking-widest text-sm mb-3">
-          Expériences
+          Experience
         </p>
         <h2 class="experience-title text-3xl md:text-4xl font-bold mb-3 md:mb-4">
-          Parcours Professionnel
+          Professional Experience
         </h2>
         <p class="experience-subtitle text-gray-400 max-w-2xl mx-auto text-xs md:text-sm">
-          Un format plus dynamique: swipe en mobile et timeline alternée sur desktop.
+          A timeline of the roles and projects that have shaped my career.
         </p>
       </div>
 

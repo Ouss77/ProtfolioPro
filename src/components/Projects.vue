@@ -16,11 +16,11 @@ const featuredProjects = projects.slice(0, 3)
     <div class="max-w-7xl mx-auto px-6">
 
       <p class="projects-kicker text-emerald-400 uppercase tracking-widest text-sm mb-3 text-center">
-        Projets
+        Projects
       </p>
 
       <h2 class="projects-title text-4xl font-bold mb-16 text-center">
-        Mes Projets
+        My Projects
       </h2>
 
       <div class="grid md:grid-cols-3 gap-8">
@@ -46,7 +46,7 @@ const featuredProjects = projects.slice(0, 3)
           to="/projects"
           class="projects-cta px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-full font-medium transition-all duration-300 transform hover:scale-105 border border-slate-700 hover:border-slate-600 shadow-lg hover:shadow-slate-900/50"
         >
-          Voir tous les projets
+          View all projects
         </router-link>
       </div>
 

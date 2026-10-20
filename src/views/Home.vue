@@ -18,8 +18,8 @@ const currentYear = new Date().getFullYear()
     <Hero
       name="Oussama Sassour"
       title="Full-Stack Developer · SaaS Builder · Tech Coach"
-      description="Je conçois des solutions web et SaaS performantes, en alliant architecture scalable, vision produit et expérience utilisateur.
-En parallèle, je forme et accompagne des développeurs en bootcamp vers l’excellence technique."
+      description="I build high-performance web and SaaS solutions, combining scalable architecture, product thinking, and great user experiences.
+Alongside my work, I train and mentor bootcamp developers to help them grow their technical skills."
     />
     <About />
     <Projects />
@@ -30,7 +30,7 @@ En parallèle, je forme et accompagne des développeurs en bootcamp vers l’exc
     <Contact />
 
     <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-sm text-gray-400">
-      © {{ currentYear }} Oussama Sassour. Tous droits réservés.
+      © {{ currentYear }} Oussama Sassour. All rights reserved.
     </footer>
   </div>
 </template>

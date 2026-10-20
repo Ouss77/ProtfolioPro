@@ -4,19 +4,19 @@ import { useReveal } from '../composables/useReveal'
 const education = [
   {
     year: "2019 - 2021",
-    degree: "Master en Big Data & Management",
-    school: "Université de Bahçeşehir, Istanbul (Turquie)"
+    degree: "Master's in Big Data & Management",
+    school: "Bahçeşehir University, Istanbul, Turkey"
   },
   {
     year: "2015 - 2018",
-    degree: "Licence en Génie Informatique",
-    school: "Faculté des Sciences et Techniques de Fès (Maroc)"
+    degree: "Bachelor's in Computer Engineering",
+    school: "Faculty of Science and Technology of Fez, Morocco"
   }
 ]
 
 const formations = [
   "MERN Stack Bootcamp",
-  "Programme d’Entrepreneuriat & Incubation de Startups (U-Founders – UM6P)"]
+  "Entrepreneurship & Startup Incubation Program (U-Founders – UM6P)"]
 
 const certifications = [
   "Back-End Apps with Node.js and Express (IBM)",
@@ -41,14 +41,14 @@ const { isVisible, elementRef } = useReveal(0.3)
       <!-- Title -->
       <div class="text-center mb-20">
         <p class="text-emerald-400 uppercase tracking-widest text-sm mb-3">
-          Éducation
+          Education
         </p>
         <h2 class="text-5xl font-bold">
-          Parcours & Formations
+          Education & Training
         </h2>
       </div>
 
-      <!-- GRID PRINCIPALE -->
+      <!-- Main grid -->
       <div class="grid lg:grid-cols-2 gap-20">
 
         <!-- EDUCATION -->
@@ -56,7 +56,7 @@ const { isVisible, elementRef } = useReveal(0.3)
 <div class="relative">
 
   <h3 class="text-2xl font-semibold text-emerald-400 mb-12">
-    Parcours Académique
+    Academic Background
   </h3>
 
   <!-- Vertical Line -->
@@ -97,13 +97,13 @@ const { isVisible, elementRef } = useReveal(0.3)
 </div>
 
 
-        <!-- FORMATIONS & CERTIFS -->
+        <!-- Training & certifications -->
         <div class="space-y-16">
 
           <!-- Formations -->
           <div class="bg-slate-950 border border-slate-800 p-10 rounded-3xl">
             <h3 class="text-2xl font-semibold mb-8 text-emerald-400">
-              Formations Complémentaires
+              Additional Training
             </h3>
 
             <ul class="space-y-4 text-gray-400">

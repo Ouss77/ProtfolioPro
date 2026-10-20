@@ -38,16 +38,16 @@ const { isVisible, elementRef } = useReveal()
             href="#services"
             class="px-6 py-3 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-black font-semibold hover:opacity-90 transition duration-300"
           >
-            Voir mes services
+            View my services
           </a>
 
           <a
-            href="https://wa.me/212699945245?text=Bonjour%20Oussama%2C%20je%20veux%20discuter%20de%20mon%20projet."
+            href="https://wa.me/212699945245?text=Hi%20Oussama%2C%20I%27d%20like%20to%20discuss%20my%20project."
             target="_blank"
             rel="noopener noreferrer"
             class="px-6 py-3 rounded-full border border-emerald-500 text-emerald-400 font-semibold hover:bg-emerald-500 hover:text-black transition duration-300"
           >
-            Contact WhatsApp
+            Contact me on WhatsApp
           </a>
         </div>
       </div>
@@ -57,7 +57,7 @@ const { isVisible, elementRef } = useReveal()
 
         <img
           src="../images/her.png"
-          alt="Photo de profil"
+          alt="Profile photo"
           class="relative w-80 md:w-[420px] drop-shadow-2xl"
         />
       </div>
