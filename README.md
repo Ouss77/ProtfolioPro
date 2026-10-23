@@ -81,5 +81,6 @@ Deploy the generated `dist/` folder to the host that serves `https://www.oussama
 ## Contact
 
 - Portfolio: [https://www.oussamasassour.com/](https://www.oussamasassour.com/)
-- Email: oussamasassour@gmail.com
+- Email: contact@oussamasassour.com
+
 - GitHub: [https://github.com/Ouss77](https://github.com/Ouss77)

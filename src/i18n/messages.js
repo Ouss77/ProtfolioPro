@@ -212,9 +212,9 @@ export const messages = {
       emailInvalid: 'Please enter a valid email address.',
       messageRequired: 'Please enter a message.',
       checkFields: 'Check the highlighted fields and try again.',
-      notConfigured: 'The contact form is not configured yet. Please email oussamasassour@gmail.com.',
+      notConfigured: 'The contact form is not configured yet. Please email contact@oussamasassour.com.',
       sent: 'Message sent. I will get back to you soon.',
-      failed: 'The message could not be sent. Please try again, or email oussamasassour@gmail.com.'
+      failed: 'The message could not be sent. Please try again, or email contact@oussamasassour.com.'
     },
     footer: {
       rights: 'All rights reserved.',
@@ -473,9 +473,11 @@ export const messages = {
       emailInvalid: 'Veuillez indiquer une adresse e-mail valide.',
       messageRequired: 'Veuillez écrire un message.',
       checkFields: 'Vérifiez les champs signalés, puis réessayez.',
-      notConfigured: 'Le formulaire n’est pas configuré. Écrivez à oussamasassour@gmail.com.',
+      notConfigured: 'Le formulaire n’est pas configuré. Écrivez à contact@oussamasassour.com
+.',
       sent: 'Message envoyé. Je vous répondrai bientôt.',
-      failed: 'Le message n’a pas pu être envoyé. Réessayez, ou écrivez à oussamasassour@gmail.com.'
+      failed: 'Le message n’a pas pu être envoyé. Réessayez, ou écrivez à contact@oussamasassour.com
+.'
     },
     footer: {
       rights: 'Tous droits réservés.',

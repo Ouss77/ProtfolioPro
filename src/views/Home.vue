@@ -32,7 +32,8 @@ const currentYear = new Date().getFullYear()
     <footer class="site-footer border-t px-4 py-8 text-center text-sm">
       <p>© {{ currentYear }} Oussama Sassour. {{ t('footer.rights') }}</p>
       <p class="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-        <a class="underline-offset-4 hover:text-emerald-300 hover:underline" href="mailto:oussamasassour@gmail.com">{{ t('footer.email') }}</a>
+        <a class="underline-offset-4 hover:text-emerald-300 hover:underline" href="mailto:contact@oussamasassour.com
+">{{ t('footer.email') }}</a>
         <a class="underline-offset-4 hover:text-emerald-300 hover:underline" href="https://github.com/Ouss77" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="underline-offset-4 hover:text-emerald-300 hover:underline" href="/CV-OUSSAMA-SASS.pdf" download="CV-OUSSAMA-SASS.pdf">{{ t('footer.cv') }}</a>
       </p>

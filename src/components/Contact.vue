@@ -126,8 +126,10 @@ const handleSubmit = async () => {
 
           <ul class="space-y-3 text-slate-100">
             <li>
-              <a class="underline-offset-4 hover:text-emerald-300 hover:underline" href="mailto:oussamasassour@gmail.com">
-                oussamasassour@gmail.com
+              <a class="underline-offset-4 hover:text-emerald-300 hover:underline" href="mailto:contact@oussamasassour.com
+">
+                contact@oussamasassour.com
+
               </a>
             </li>
             <li>
