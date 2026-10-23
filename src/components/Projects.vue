@@ -33,7 +33,7 @@ const hasMore = computed(() => projects.some(project => !project.featured))
         {{ t('projectsSection.intro') }}
       </p>
 
-      <div class="grid gap-6 md:grid-cols-2 md:gap-8">
+      <div class="grid gap-4 md:grid-cols-2 md:gap-8">
         <ProjectCard
           v-for="(project, index) in featuredProjects"
           :key="project.id"

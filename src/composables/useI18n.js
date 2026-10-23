@@ -73,9 +73,19 @@ export function localizeProject(project) {
   }
 }
 
-export function translateLinkLabel(label) {
-  const translated = lookup(state.locale, `links.${label}`)
-  return typeof translated === 'string' ? translated : label
+export function translateLinkLabel(label, variant = 'full') {
+  const group = variant === 'short' ? 'linksShort' : 'links'
+  const translated = lookup(state.locale, `${group}.${label}`)
+  if (typeof translated === 'string') {
+    return translated
+  }
+
+  if (variant === 'short') {
+    const full = lookup(state.locale, `links.${label}`)
+    return typeof full === 'string' ? full : label
+  }
+
+  return label
 }
 
 export function useI18n() {

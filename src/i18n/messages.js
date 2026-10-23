@@ -36,6 +36,7 @@ export const messages = {
       whatsappText: "Hi Oussama, I'd like to discuss my project.",
       allProjects: 'View all projects',
       details: 'Details',
+      detailsShort: 'View',
       viewProject: 'View {title}',
       backHome: 'Back to home',
       allProjectsBack: 'All projects'
@@ -46,6 +47,13 @@ export const messages = {
       Frontend: 'Frontend',
       API: 'API',
       Notebook: 'Notebook'
+    },
+    linksShort: {
+      'Live Demo': 'Live',
+      'Source Code': 'Code',
+      Frontend: 'Front',
+      API: 'API',
+      Notebook: 'Colab'
     },
     hero: {
       eyebrow: 'Software engineer',
@@ -116,6 +124,7 @@ export const messages = {
       kicker: 'Experience',
       title: 'Professional Experience',
       intro: 'Engineering, product delivery, and bootcamp instruction.',
+      hint: 'Hover a role, or tap it, to read the details.',
       items: [
         {
           title: 'Freelance Full-Stack Developer',
@@ -138,21 +147,21 @@ export const messages = {
           ]
         },
         {
+          title: 'Training Coordinator & Manager - INDH',
+          period: '2025',
+          description: 'Coordinated training programs and led instructional teams.',
+          highlights: [
+            'Coordinated training programs and monitored learner progress.',
+            'Managed an instructional team.'
+          ]
+        },
+        {
           title: 'Web Developer & Data Analyst - Intellia',
           period: '2022',
           description: 'Built a data application and used Python for analysis.',
           highlights: [
             'Developed a data management application.',
             'Automated and analyzed data with Python.'
-          ]
-        },
-        {
-          title: 'Training Coordinator & Manager',
-          period: '2025',
-          description: 'Coordinated training programs and led instructional teams.',
-          highlights: [
-            'Coordinated training programs and monitored learner progress.',
-            'Managed an instructional team.'
           ]
         },
         {
@@ -288,6 +297,7 @@ export const messages = {
       whatsappText: 'Bonjour Oussama, je souhaite discuter de mon projet.',
       allProjects: 'Voir tous les projets',
       details: 'Détails',
+      detailsShort: 'Voir',
       viewProject: 'Voir {title}',
       backHome: 'Retour à l’accueil',
       allProjectsBack: 'Tous les projets'
@@ -298,6 +308,13 @@ export const messages = {
       Frontend: 'Frontend',
       API: 'API',
       Notebook: 'Notebook'
+    },
+    linksShort: {
+      'Live Demo': 'Démo',
+      'Source Code': 'Code',
+      Frontend: 'Front',
+      API: 'API',
+      Notebook: 'Colab'
     },
     hero: {
       eyebrow: 'Ingénieur logiciel',
@@ -368,6 +385,7 @@ export const messages = {
       kicker: 'Expérience',
       title: 'Expérience professionnelle',
       intro: 'Ingénierie, livraison de produits et formation en bootcamp.',
+      hint: 'Survolez un poste, ou touchez-le, pour lire le détail.',
       items: [
         {
           title: 'Développeur full-stack freelance',
@@ -390,21 +408,21 @@ export const messages = {
           ]
         },
         {
+          title: 'Coordinateur et responsable de formation - INDH',
+          period: '2025',
+          description: 'Coordination de programmes de formation et encadrement d’équipes pédagogiques.',
+          highlights: [
+            'Coordination des programmes et suivi de la progression des apprenants.',
+            'Management d’une équipe de formateurs.'
+          ]
+        },
+        {
           title: 'Développeur web et data analyst - Intellia',
           period: '2022',
           description: 'Développement d’une application de données et analyse en Python.',
           highlights: [
             'Développement d’une application de gestion de données.',
             'Automatisation et analyse de données avec Python.'
-          ]
-        },
-        {
-          title: 'Coordinateur et responsable de formation',
-          period: '2025',
-          description: 'Coordination de programmes de formation et encadrement d’équipes pédagogiques.',
-          highlights: [
-            'Coordination des programmes et suivi de la progression des apprenants.',
-            'Management d’une équipe de formateurs.'
           ]
         },
         {

@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useI18n } from '../composables/useI18n'
 
-const { tf, translateLinkLabel } = useI18n()
+const { t, tf, translateLinkLabel } = useI18n()
 
 const props = defineProps({
   id: Number,
@@ -40,6 +40,19 @@ const props = defineProps({
 
 const cardText = computed(() => props.summary || props.description)
 const sourceLinks = computed(() => (props.links || []).filter(link => link?.href))
+const shortTitle = computed(() => {
+  const title = props.title || ''
+  const [name] = title.split(/\s[—–]\s/)
+  return name || title
+})
+
+function fullLink(label) {
+  return translateLinkLabel(label)
+}
+
+function shortLink(label) {
+  return translateLinkLabel(label, 'short')
+}
 </script>
 
 <template>
@@ -56,37 +69,41 @@ const sourceLinks = computed(() => (props.links || []).filter(link => link?.href
         height="360"
         loading="lazy"
         decoding="async"
-        class="h-48 w-full object-cover sm:h-56"
+        class="h-32 w-full object-cover object-top sm:h-48 md:h-56"
       />
     </router-link>
 
-    <div class="flex flex-1 flex-col gap-4 p-5 sm:p-6">
-      <h3 class="project-card-title text-lg font-semibold leading-snug">
+    <div class="flex flex-1 flex-col gap-2.5 p-4 sm:gap-4 sm:p-6">
+      <h3 class="project-card-title text-base font-semibold leading-snug sm:text-lg">
         <router-link :to="`/project/${id}`" class="hover:text-emerald-300 focus-visible:outline-none">
-          {{ title }}
+          <span class="sm:hidden">{{ shortTitle }}</span>
+          <span class="hidden sm:inline">{{ title }}</span>
         </router-link>
       </h3>
 
-      <p class="project-card-description text-sm leading-relaxed">
+      <p class="project-card-description line-clamp-2 text-sm leading-snug sm:line-clamp-3 sm:leading-relaxed">
         {{ cardText }}
       </p>
 
-      <ul class="flex flex-wrap gap-2">
+      <ul class="flex gap-1.5 overflow-hidden sm:flex-wrap sm:gap-2">
         <li
-          v-for="techItem in tech"
+          v-for="(techItem, techIndex) in tech"
           :key="techItem"
-          class="project-tech-pill rounded-full px-3 py-1 text-xs"
+          class="project-tech-pill shrink-0 rounded-full px-2 py-0.5 text-[11px] sm:px-3 sm:py-1 sm:text-xs"
+          :class="techIndex > 2 ? 'hidden sm:inline-flex' : ''"
         >
           {{ techItem }}
         </li>
       </ul>
 
-      <div class="mt-auto flex flex-wrap items-center gap-2 pt-1">
+      <div class="mt-auto flex items-center gap-1.5 pt-1 sm:flex-wrap sm:gap-2">
         <router-link
           :to="`/project/${id}`"
-          class="project-btn-code inline-flex min-h-11 items-center justify-center rounded-lg border px-4 py-2 text-sm font-semibold"
+          class="project-btn-code inline-flex min-h-11 flex-1 items-center justify-center whitespace-nowrap rounded-lg border px-1.5 py-2 text-xs font-semibold sm:flex-none sm:px-4 sm:text-sm"
+          :aria-label="t('actions.details')"
         >
-          {{ tf('actions.details') }}
+          <span class="sm:hidden">{{ t('actions.detailsShort') }}</span>
+          <span class="hidden sm:inline">{{ t('actions.details') }}</span>
         </router-link>
 
         <a
@@ -94,9 +111,11 @@ const sourceLinks = computed(() => (props.links || []).filter(link => link?.href
           :href="liveUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="project-btn-live inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-black hover:bg-emerald-400"
+          class="project-btn-live inline-flex min-h-11 flex-1 items-center justify-center whitespace-nowrap rounded-lg bg-emerald-500 px-1.5 py-2 text-xs font-semibold text-black hover:bg-emerald-400 sm:flex-none sm:px-4 sm:text-sm"
+          :aria-label="fullLink(liveLabel)"
         >
-          {{ translateLinkLabel(liveLabel) }}
+          <span class="sm:hidden">{{ shortLink(liveLabel) }}</span>
+          <span class="hidden sm:inline">{{ fullLink(liveLabel) }}</span>
         </a>
 
         <a
@@ -105,9 +124,11 @@ const sourceLinks = computed(() => (props.links || []).filter(link => link?.href
           :href="link.href"
           target="_blank"
           rel="noopener noreferrer"
-          class="project-btn-code inline-flex min-h-11 items-center justify-center rounded-lg border px-4 py-2 text-sm font-semibold"
+          class="project-btn-code inline-flex min-h-11 flex-1 items-center justify-center whitespace-nowrap rounded-lg border px-1.5 py-2 text-xs font-semibold sm:flex-none sm:px-4 sm:text-sm"
+          :aria-label="fullLink(link.label)"
         >
-          {{ translateLinkLabel(link.label) }}
+          <span class="sm:hidden">{{ shortLink(link.label) }}</span>
+          <span class="hidden sm:inline">{{ fullLink(link.label) }}</span>
         </a>
       </div>
     </div>

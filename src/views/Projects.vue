@@ -36,7 +36,7 @@ const localizedProjects = computed(() => projects.map(project => localizeProject
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-8">
         <ProjectCard
           v-for="(project, index) in localizedProjects"
           :key="project.id"

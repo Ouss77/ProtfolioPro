@@ -233,7 +233,7 @@ html.light-mode .experience-card-mobile:hover,
 html.light-mode .experience-card:hover {
   border-color: rgba(16, 185, 129, 0.45) !important;
   box-shadow: 0 16px 34px rgba(16, 185, 129, 0.12);
-  transform: translateY(-3px);
+  transform: none;
 }
 
 html.light-mode .experience-card-mobile:hover::before,
@@ -628,8 +628,7 @@ main > section + section {
 }
 
 .project-card.is-in:hover,
-.service-card.is-in:hover,
-.experience-card:hover {
+.service-card.is-in:hover {
   transform: translateY(-4px);
 }
 
