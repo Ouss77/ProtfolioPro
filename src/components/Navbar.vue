@@ -1,18 +1,22 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { inject, onMounted, onUnmounted, ref } from 'vue'
+import { useI18n } from '../composables/useI18n'
+import { scrollToSection } from '../utils/scrollToSection'
 
 const isOpen = ref(false)
 const activeSection = ref('accueil')
+const themeApi = inject('theme', null)
+const { t, locale, setLocale } = useI18n()
 
 const navItems = [
-  { id: 'accueil', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'projets', label: 'Projects' },
-  { id: 'competences', label: 'Skills' },
-  { id: 'services', label: 'Services' },
-  { id: 'experiences', label: 'Experience' },
-  { id: 'education', label: 'Education' },
-  { id: 'contact', label: 'Contact' }
+  { id: 'accueil', label: 'nav.home' },
+  { id: 'about', label: 'nav.about' },
+  { id: 'projets', label: 'nav.projects' },
+  { id: 'competences', label: 'nav.skills' },
+  { id: 'services', label: 'nav.services' },
+  { id: 'experiences', label: 'nav.experience' },
+  { id: 'education', label: 'nav.education' },
+  { id: 'contact', label: 'nav.contact' }
 ]
 
 const setActiveSection = (id) => {
@@ -22,17 +26,16 @@ const setActiveSection = (id) => {
 }
 
 const updateActiveFromScroll = () => {
-  const sectionIds = navItems.map(item => item.id)
-  const sections = sectionIds
-    .map(id => document.getElementById(id))
+  const sections = navItems
+    .map(item => document.getElementById(item.id))
     .filter(Boolean)
 
   if (!sections.length) {
     return
   }
 
-  const offset = window.scrollY + window.innerHeight * 0.35
-  let currentId = sectionIds[0]
+  const offset = window.scrollY + 96
+  let currentId = sections[0].id
 
   sections.forEach((section) => {
     if (section.offsetTop <= offset) {
@@ -43,103 +46,145 @@ const updateActiveFromScroll = () => {
   setActiveSection(currentId)
 }
 
-const handleHashChange = () => {
-  const id = window.location.hash.replace('#', '')
-  if (id) {
-    setActiveSection(id)
-  }
+const closeMobileMenu = () => {
+  isOpen.value = false
 }
 
-const handleNavClick = (id) => {
+const handleNavClick = (event, id) => {
+  scrollToSection(id, event)
   setActiveSection(id)
   closeMobileMenu()
 }
 
-onMounted(() => {
-  handleHashChange()
-  updateActiveFromScroll()
+const onKeydown = (event) => {
+  if (event.key === 'Escape') {
+    closeMobileMenu()
+  }
+}
 
+onMounted(() => {
+  const id = window.location.hash.replace('#', '')
+  if (id) {
+    setActiveSection(id)
+  }
+  updateActiveFromScroll()
   window.addEventListener('scroll', updateActiveFromScroll, { passive: true })
-  window.addEventListener('hashchange', handleHashChange)
+  window.addEventListener('keydown', onKeydown)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', updateActiveFromScroll)
-  window.removeEventListener('hashchange', handleHashChange)
+  window.removeEventListener('keydown', onKeydown)
 })
-
-const closeMobileMenu = () => {
-  isOpen.value = false
-}
 </script>
 
 <template>
-  <header class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10">
-    
-    <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between shadow-lg
-">
-      <!-- Desktop Menu -->
-      <ul class="hidden md:flex items-center gap-8 text-gray-300 font-medium">
-        <li
-          v-for="item in navItems"
-          :key="item.id"
-        >
+  <header class="site-header fixed top-0 z-50 w-full">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:rounded-md focus:bg-emerald-400 focus:px-3 focus:py-2 focus:text-black"
+      @click="handleNavClick($event, 'main')"
+    >
+      {{ t('nav.skip') }}
+    </a>
+
+    <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 md:h-20" aria-label="Primary">
+      <a href="#accueil" class="brand-link truncate text-sm font-semibold sm:text-base" @click="handleNavClick($event, 'accueil')">
+        Oussama Sassour
+      </a>
+
+      <ul class="hidden items-center gap-4 text-sm font-medium xl:flex">
+        <li v-for="item in navItems" :key="item.id">
           <a
             :href="`#${item.id}`"
-            class="relative transition duration-300"
-            :class="activeSection === item.id ? 'text-emerald-400' : 'hover:text-emerald-400'"
-            @click="handleNavClick(item.id)"
+            class="nav-link inline-flex min-h-11 items-center"
+            :class="activeSection === item.id ? 'is-active' : ''"
+            :aria-current="activeSection === item.id ? 'true' : undefined"
+            @click="handleNavClick($event, item.id)"
           >
-            {{ item.label }}
+            {{ t(item.label) }}
           </a>
         </li>
       </ul>
 
-      <!-- Desktop CTA -->
-      <div class="hidden md:block">
+      <div class="flex items-center gap-2">
+        <div class="lang-switch" role="group" :aria-label="t('nav.language')">
+          <button
+            type="button"
+            class="lang-btn"
+            :aria-pressed="locale === 'en'"
+            @click="setLocale('en')"
+          >
+            EN
+          </button>
+          <button
+            type="button"
+            class="lang-btn"
+            :aria-pressed="locale === 'fr'"
+            @click="setLocale('fr')"
+          >
+            FR
+          </button>
+        </div>
+
+        <button
+          v-if="themeApi"
+          type="button"
+          class="theme-toggle inline-flex min-h-11 items-center rounded-full border px-3 py-2 text-xs font-semibold sm:text-sm"
+          :aria-label="themeApi.toggleAriaLabel"
+          @click="themeApi.toggleTheme"
+        >
+          {{ themeApi.toggleLabel }}
+        </button>
+
         <a
           href="/CV-OUSSAMA-SASS.pdf"
           download="CV-OUSSAMA-SASS.pdf"
-          class="px-5 py-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-black font-semibold hover:opacity-90 transition hover:scale-105 duration-300 inline-block"
+          class="cv-link hidden min-h-11 items-center rounded-full bg-gradient-to-r from-green-400 to-emerald-500 px-4 py-2 text-sm font-semibold text-black xl:inline-flex"
         >
-          Download CV
+          {{ t('actions.cv') }}
         </a>
+
+        <button
+          type="button"
+          class="menu-toggle inline-flex h-11 w-11 items-center justify-center rounded-lg text-2xl xl:hidden"
+          :aria-expanded="isOpen"
+          aria-controls="mobile-menu"
+          :aria-label="isOpen ? t('nav.closeMenu') : t('nav.openMenu')"
+          @click="isOpen = !isOpen"
+        >
+          <span aria-hidden="true">{{ isOpen ? '✕' : '☰' }}</span>
+        </button>
       </div>
+    </nav>
 
-      <!-- Mobile Button -->
-      <button 
-        class="md:hidden text-white text-2xl"
-        @click="isOpen = !isOpen"
-      > 
-        {{ isOpen ? '✕' : '☰' }}  
-      </button>
-    </nav> 
-
-    <!-- Mobile Menu -->
-    <div 
+    <div
       v-if="isOpen"
-      class="md:hidden bg-slate-900 border-t border-white/10"
+      id="mobile-menu"
+      class="mobile-menu border-t xl:hidden"
     >
-      <ul class="flex flex-col p-6 gap-6 text-gray-300 font-medium">
-        <a
-          v-for="item in navItems"
-          :key="item.id"
-          :href="`#${item.id}`"
-          class="transition"
-          :class="activeSection === item.id ? 'text-emerald-400' : 'hover:text-emerald-400'"
-          @click="handleNavClick(item.id)" 
-        >
-          {{ item.label }}
-        </a>
-        <a
-          href="/CV-OUSSAMA-SASS.pdf"
-          download="CV-OUSSAMA-SASS.pdf"
-          class="mt-4 px-5 py-3 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-black font-semibold inline-block text-center"
-        >
-          Download CV
-        </a>
+      <ul class="flex flex-col px-4 py-3 text-base font-medium">
+        <li v-for="item in navItems" :key="item.id">
+          <a
+            :href="`#${item.id}`"
+            class="nav-link flex min-h-12 items-center border-b border-white/10"
+            :class="activeSection === item.id ? 'is-active' : ''"
+            :aria-current="activeSection === item.id ? 'true' : undefined"
+            @click="handleNavClick($event, item.id)"
+          >
+            {{ t(item.label) }}
+          </a>
+        </li>
+        <li>
+          <a
+            href="/CV-OUSSAMA-SASS.pdf"
+            download="CV-OUSSAMA-SASS.pdf"
+            class="cv-link mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-gradient-to-r from-green-400 to-emerald-500 px-5 py-3 text-center font-semibold text-black"
+          >
+            {{ t('actions.cv') }}
+          </a>
+        </li>
       </ul>
     </div>
-
   </header>
 </template>

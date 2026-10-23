@@ -1,10 +1,15 @@
 <script setup>
+import { computed } from 'vue'
 import { projects } from '../data/projects'
 import ProjectCard from '../components/ProjectCard.vue'
+import { useI18n } from '../composables/useI18n'
+
+const { t, localizeProject } = useI18n()
+const localizedProjects = computed(() => projects.map(project => localizeProject(project)))
 </script>
 
 <template>
-  <section class="projects-page relative overflow-hidden min-h-screen py-24 md:py-28 text-white">
+  <section id="main" class="projects-page relative min-h-screen overflow-hidden px-0 py-24 text-white md:py-28">
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
       <div class="projects-glow projects-glow-left"></div>
       <div class="projects-glow projects-glow-right"></div>
@@ -16,32 +21,26 @@ import ProjectCard from '../components/ProjectCard.vue'
         class="inline-flex items-center gap-2 text-sm text-emerald-300 hover:text-emerald-200 transition-colors duration-300 mb-8"
       >
         <span aria-hidden="true">←</span>
-        Back to home
+        {{ t('projectsPage.back') }}
       </router-link>
 
       <div class="text-center mb-12 md:mb-16">
-        <p class="text-emerald-400 uppercase tracking-widest text-sm mb-3">
-          Portfolio
+        <p class="text-emerald-300 uppercase tracking-widest text-sm mb-3">
+          {{ t('projectsPage.kicker') }}
         </p>
-        <h1 class="text-3xl md:text-5xl font-bold mb-4 text-white">
-          All Projects
+        <h1 class="mb-4 text-3xl font-bold text-white md:text-5xl">
+          {{ t('projectsPage.title') }}
         </h1>
-        <p class="text-slate-300 max-w-2xl mx-auto text-sm md:text-base">
-          A complete selection of my work, from SaaS platforms to machine learning.
+        <p class="mx-auto max-w-2xl text-sm leading-relaxed text-slate-200 md:text-base">
+          {{ t('projectsPage.intro') }}
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
         <ProjectCard
-          v-for="(project, index) in projects"
+          v-for="(project, index) in localizedProjects"
           :key="project.id"
-          :id="project.id"
-          :title="project.title"
-          :description="project.description"
-          :image="project.image"
-          :liveUrl="project.liveUrl"
-          :githubUrl="project.githubUrl"
-          :tech="project.tech"
+          v-bind="project"
           :index="index"
           :visible="true"
         />
@@ -53,9 +52,9 @@ import ProjectCard from '../components/ProjectCard.vue'
 <style scoped>
 .projects-page {
   background:
-    radial-gradient(circle at 10% 8%, rgba(16, 185, 129, 0.16), transparent 36%),
-    radial-gradient(circle at 85% 0%, rgba(14, 165, 233, 0.15), transparent 34%),
-    linear-gradient(180deg, #020617, #0b1222 56%, #0f172a);
+    radial-gradient(circle at 10% 8%, rgba(16, 185, 129, 0.18), transparent 36%),
+    radial-gradient(circle at 85% 0%, rgba(125, 211, 252, 0.14), transparent 34%),
+    linear-gradient(180deg, #1a2a44, #243656 56%, #2c4064);
 }
 
 .projects-glow {

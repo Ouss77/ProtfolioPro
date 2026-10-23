@@ -3,13 +3,16 @@ import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import { projects } from '../data/projects'
 import { skillsByCategory } from '../data/skills'
+import { useI18n } from '../composables/useI18n'
 
 const route = useRoute()
+const { t, localizeProject, translateLinkLabel } = useI18n()
 
 const project = computed(() => {
-  return projects.find(
+  const match = projects.find(
     p => String(p.id) === String(route.params.id)
   )
+  return match ? localizeProject(match) : null
 })
 
 const knownSkillLogos = Object.values(skillsByCategory)
@@ -39,7 +42,11 @@ const techLogoOverrides = {
   vercel: 'https://cdn.simpleicons.org/vercel',
   render: 'https://cdn.simpleicons.org/render',
   matplotlib: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg',
-  Sciketlearn: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg',
+  scikitlearn: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg',
+  postgresql: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+  supabase: 'https://cdn.simpleicons.org/supabase/3ecf8e',
+  vite: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg',
+  express: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg'
 }
 
 function normalizeTechName(value = '') {
@@ -79,94 +86,100 @@ function getTechInitials(name = '') {
 
 
 <template>
-  <div class="min-h-screen bg-slate-950 text-white p-10">
+  <main id="main" class="project-detail min-h-screen px-4 py-8 text-white sm:px-6 sm:py-10 md:p-10">
+    <div class="mx-auto max-w-6xl">
+      <router-link to="/projects" class="mb-6 inline-flex min-h-11 items-center text-emerald-300">
+        ← {{ t('actions.allProjectsBack') }}
+      </router-link>
 
-    <router-link to="/" class="text-emerald-400 mb-6 inline-block">
-      ← Back
-    </router-link>
+      <div v-if="project">
+        <p class="mb-2 text-sm uppercase tracking-widest text-emerald-300">{{ t('projectPage.kicker') }}</p>
+        <h1 class="mb-6 text-3xl font-bold leading-tight sm:text-4xl">
+          {{ project.title }}
+        </h1>
 
-    <div v-if="project">
+        <div class="mb-6 grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
+          <img
+            :src="project.image"
+            :alt="project.imageAlt || `Screenshot of ${project.title}`"
+            width="960"
+            height="540"
+            class="w-full rounded-xl border border-slate-800"
+          />
 
-      <h1 class="text-4xl font-bold mb-6">
-        {{ project.title }}
-      </h1>
+          <aside class="tech-panel relative overflow-hidden rounded-2xl p-5 md:p-6">
+            <div class="tech-panel-glow" aria-hidden="true"></div>
 
-      <div class="grid lg:grid-cols-[minmax(0,1fr)_340px] gap-6 items-start mb-6">
-        <img
-          :src="project.image"
-          :alt="`Screenshot of ${project.title}`"
-          class="w-full max-w-2xl rounded-xl border border-slate-800"
-        />
+            <h2 class="relative z-10 mb-1 text-lg font-semibold tracking-wide text-emerald-300">
+              {{ t('projectPage.techTitle') }}
+            </h2>
+            <p class="relative z-10 mb-4 text-xs text-slate-200">
+              {{ t('projectPage.techNote') }}
+            </p>
 
-        <aside class="tech-panel rounded-2xl p-5 md:p-6 relative overflow-hidden">
-          <div class="tech-panel-glow" aria-hidden="true"></div>
-
-          <h2 class="text-lg font-semibold text-emerald-300 mb-1 tracking-wide relative z-10">
-            Technologies Used
-          </h2>
-          <p class="text-xs text-slate-300/80 mb-4 relative z-10">
-            Technology stack and tools used in this project
-          </p>
-
-          <div class="grid grid-cols-2 gap-3 relative z-10">
-            <div
-              v-for="(tech, index) in techItems"
-              :key="tech.name"
-              class="tech-item rounded-xl p-3 flex flex-col items-center text-center"
-              :style="{ animationDelay: `${index * 90}ms` }"
-            >
-              <img
-                v-if="tech.logo"
-                :src="tech.logo"
-                :alt="tech.name"
-                class="w-10 h-10 object-contain mb-2 tech-logo"
-              />
-              <span
-                v-else
-                class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-bold flex items-center justify-center mb-2 tech-logo"
+            <ul class="relative z-10 grid grid-cols-2 gap-3">
+              <li
+                v-for="(tech, index) in techItems"
+                :key="tech.name"
+                class="tech-item flex flex-col items-center rounded-xl p-3 text-center"
+                :style="{ animationDelay: `${index * 90}ms` }"
               >
-                {{ getTechInitials(tech.name) }}
-              </span>
+                <img
+                  v-if="tech.logo"
+                  :src="tech.logo"
+                  alt=""
+                  class="tech-logo mb-2 h-10 w-10 object-contain"
+                />
+                <span
+                  v-else
+                  class="tech-logo mb-2 flex h-10 w-10 items-center justify-center rounded-full border border-emerald-500/40 bg-emerald-500/20 text-xs font-bold text-emerald-300"
+                  aria-hidden="true"
+                >
+                  {{ getTechInitials(tech.name) }}
+                </span>
 
-              <p class="text-xs text-slate-100 leading-tight font-medium">
-                {{ tech.name }}
-              </p>
-            </div>
-          </div>
-        </aside>
+                <p class="text-xs font-medium leading-tight text-slate-100">
+                  {{ tech.name }}
+                </p>
+              </li>
+            </ul>
+          </aside>
+        </div>
+
+        <p class="mb-6 max-w-3xl leading-relaxed text-slate-100">
+          {{ project.description }}
+        </p>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <a
+            v-if="project.liveUrl"
+            :href="project.liveUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-500 px-6 py-3 font-semibold text-black"
+          >
+            {{ translateLinkLabel(project.liveLabel || 'Live Demo') }}
+          </a>
+
+          <a
+            v-for="link in project.links || []"
+            :key="link.href"
+            :href="link.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-11 items-center justify-center rounded-lg border border-emerald-500 px-6 py-3 font-semibold text-emerald-400"
+          >
+            {{ translateLinkLabel(link.label) }}
+          </a>
+        </div>
       </div>
 
-      <p class="text-gray-400 mb-6">
-        {{ project.description }}
-      </p>
-
-      <div class="flex gap-4">
-        <a
-          v-if="project.liveUrl"
-          :href="project.liveUrl"
-          target="_blank"
-          class="px-6 py-3 bg-emerald-500 text-black rounded-lg"
-        >
-          Voir le site
-        </a>
-
-        <a
-          v-if="project.githubUrl"
-          :href="project.githubUrl"
-          target="_blank"
-          class="px-6 py-3 border border-emerald-500 text-emerald-500 rounded-lg"
-        >
-          GitHub
-        </a>
+      <div v-else>
+        <h1 class="text-2xl font-semibold text-white">{{ t('projectPage.missingTitle') }}</h1>
+        <p class="mt-3 text-slate-300">{{ t('projectPage.missingText') }}</p>
       </div>
-
     </div>
-
-    <div v-else class="text-red-500 text-xl">
-      Project not found.
-    </div>
-
-  </div>
+  </main>
 </template>
 
 <style scoped>

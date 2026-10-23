@@ -1,93 +1,59 @@
 <script setup>
 import { computed } from 'vue'
 import { useReveal } from '../composables/useReveal'
+import { useI18n } from '../composables/useI18n'
 import SkillCard from './SkillCard.vue'
 import { skillsByCategory } from '../data/skills'
 
-const { isVisible, elementRef } = useReveal(0.2)
+const { isVisible, elementRef } = useReveal(0.12)
+const { t } = useI18n()
 
-const skillSections = computed(() => [
-  {
-    title: 'Core Technologies',
-    skills: [
-      skillsByCategory.Frontend.find(skill => skill.name === 'React'),
-      skillsByCategory.Frontend.find(skill => skill.name === 'Next.js'),
-      skillsByCategory.Backend.find(skill => skill.name === 'Node.js'),
-      skillsByCategory.Backend.find(skill => skill.name === 'Express.js'),
-      skillsByCategory.Frontend.find(skill => skill.name === 'Tailwind CSS')
-    ].filter(Boolean)
-  },
-  {
-    title: 'Tools & Platforms',
-    skills: [
-      skillsByCategory.DevOps.find(skill => skill.name === 'Git'),
-      skillsByCategory.DevOps.find(skill => skill.name === 'GitHub'),
-      skillsByCategory.DevOps.find(skill => skill.name === 'Docker'),
-      skillsByCategory.DevOps.find(skill => skill.name === 'Vercel'),
-      skillsByCategory.DevOps.find(skill => skill.name === 'OVH'),
-      skillsByCategory.DevOps.find(skill => skill.name === 'Postman'),
-      skillsByCategory.Backend.find(skill => skill.name === 'REST APIs')
-    ].filter(Boolean)
-  },
-  {
-    title: 'Data & AI',
-    skills: skillsByCategory.ML
-  },
-  {
-    title: 'Other Technologies',
-    skills: skillsByCategory.Other
-  }
-])
+const skillSections = computed(() =>
+  Object.entries(skillsByCategory).map(([title, skills]) => ({
+    title: t(`skills.groups.${title}`),
+    skills
+  }))
+)
 </script>
 
 <template>
   <section
     id="competences"
     ref="elementRef"
-    class="py-24 md:py-28 bg-slate-950 text-white"
+    class="band-a px-4 py-16 text-white sm:px-6 md:py-24"
     data-section="skills"
   >
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-
-      <h2 class="skills-title text-3xl md:text-4xl font-bold text-center mb-14 md:mb-16">
-        Skills
+    <div class="mx-auto max-w-6xl">
+      <h2 class="skills-title mb-4 text-center text-3xl font-bold text-white md:mb-5 md:text-4xl">
+        {{ t('skills.title') }}
       </h2>
+      <p class="skills-subtitle mx-auto mb-10 max-w-2xl text-center text-sm leading-relaxed text-slate-200 md:mb-14 md:text-base">
+        {{ t('skills.intro') }}
+      </p>
 
-      <div class="space-y-10 md:space-y-12">
+      <div class="space-y-10">
         <div
           v-for="(section, index) in skillSections"
           :key="section.title"
-          :style="{ transitionDelay: isVisible ? index * 120 + 'ms' : '0ms' }"
-          :class="isVisible
-            ? 'opacity-100 translate-y-0 transition-all duration-700'
-            : 'opacity-0 translate-y-6'"
+          class="skill-group"
+          :style="{ transitionDelay: isVisible ? `${index * 90}ms` : '0ms' }"
+          :class="isVisible ? 'is-in' : ''"
         >
-          <h3 class="skills-subtitle text-xl md:text-2xl font-semibold mb-5 md:mb-6 text-white/95">
+          <h3 class="mb-4 text-lg font-semibold text-white md:text-2xl">
             {{ section.title }}
           </h3>
 
-          <div class="skills-carousel md:hidden -mx-4 px-4 overflow-x-auto flex gap-2.5 pb-2 snap-x snap-mandatory">
+          <div class="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:flex lg:flex-wrap lg:gap-4">
             <SkillCard
               v-for="skill in section.skills"
               :key="skill.name"
               :name="skill.name"
               :logo="skill.logo"
-              class="w-[62vw] max-w-[220px] shrink-0 snap-start"
-            />
-          </div>
-
-          <div class="hidden md:flex flex-wrap gap-3 md:gap-4">
-            <SkillCard
-              v-for="skill in section.skills"
-              :key="skill.name"
-              :name="skill.name"
-              :logo="skill.logo"
-              class="w-[170px] lg:w-[190px]"
+              class="w-full lg:w-[190px]"
             />
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </template>

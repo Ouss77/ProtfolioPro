@@ -1,145 +1,97 @@
 <script setup>
 import { useReveal } from '../composables/useReveal'
+import { useI18n } from '../composables/useI18n'
 
-const education = [
-  {
-    year: "2019 - 2021",
-    degree: "Master's in Big Data & Management",
-    school: "Bahçeşehir University, Istanbul, Turkey"
-  },
-  {
-    year: "2015 - 2018",
-    degree: "Bachelor's in Computer Engineering",
-    school: "Faculty of Science and Technology of Fez, Morocco"
-  }
-]
-
-const formations = [
-  "MERN Stack Bootcamp",
-  "Entrepreneurship & Startup Incubation Program (U-Founders – UM6P)"]
-
-const certifications = [
-  "Back-End Apps with Node.js and Express (IBM)",
-  "Front-End Developer (Meta)",
-  "Responsive Web Design (freeCodeCamp)",
-  "Agile Software Development (Coursera)"
-]
-
-const { isVisible, elementRef } = useReveal(0.3)
+const { isVisible, elementRef } = useReveal(0.12)
+const { t } = useI18n()
 </script>
 
 <template>
   <section
     id="education"
     ref="elementRef"
-    :class="isVisible
-      ? 'py-32 bg-slate-900 text-white opacity-100 translate-y-0 transition-all duration-1000'
-      : 'py-32 bg-slate-900 text-white opacity-0 translate-y-10'"
+    class="band-b px-4 py-16 text-white sm:px-6 md:py-24 lg:py-32"
   >
-    <div class="max-w-7xl mx-auto px-6">
-
-      <!-- Title -->
-      <div class="text-center mb-20">
-        <p class="text-emerald-400 uppercase tracking-widest text-sm mb-3">
-          Education
+    <div
+      class="reveal mx-auto max-w-7xl"
+      :class="isVisible ? 'is-in' : ''"
+    >
+      <div class="mb-12 text-center md:mb-20">
+        <p class="mb-3 text-sm uppercase tracking-widest text-emerald-300">
+          {{ t('education.kicker') }}
         </p>
-        <h2 class="text-5xl font-bold">
-          Education & Training
+        <h2 class="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+          {{ t('education.title') }}
         </h2>
       </div>
 
-      <!-- Main grid -->
-      <div class="grid lg:grid-cols-2 gap-20">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+        <div class="relative">
+          <h3 class="mb-12 text-2xl font-semibold text-emerald-300">
+            {{ t('education.academic') }}
+          </h3>
 
-        <!-- EDUCATION -->
-<!-- EDUCATION -->
-<div class="relative">
+          <div class="absolute bottom-0 left-4 top-12 w-px bg-gradient-to-b from-emerald-300/70 to-transparent"></div>
 
-  <h3 class="text-2xl font-semibold text-emerald-400 mb-12">
-    Academic Background
-  </h3>
+          <div class="space-y-10">
+            <div
+              v-for="item in t('education.degrees')"
+              :key="item.degree"
+              class="relative pl-12"
+            >
+              <div class="absolute left-0 top-2 h-4 w-4 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/40"></div>
 
-  <!-- Vertical Line -->
-  <div class="absolute left-4 top-12 bottom-0 w-px bg-gradient-to-b from-emerald-500/40 to-transparent"></div>
-
-  <div class="space-y-16">
-
-    <div
-      v-for="(item, index) in education"
-      :key="item.degree"
-      class="relative pl-12"
-    >
-
-      <!-- Dot -->
-      <div class="absolute left-0 top-2 w-4 h-4 bg-emerald-500 rounded-full shadow-lg shadow-emerald-500/40"></div>
-
-      <!-- Card -->
-      <div class="bg-slate-950 border border-slate-800 p-8 rounded-2xl hover:border-emerald-500/40 transition duration-500">
-
-        <p class="text-emerald-400 text-sm mb-2">
-          {{ item.year }}
-        </p>
-
-        <h4 class="text-lg font-semibold mb-1">
-          {{ item.degree }}
-        </h4>
-
-        <p class="text-gray-400">
-          {{ item.school }}
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-        <!-- Training & certifications -->
-        <div class="space-y-16">
-
-          <!-- Formations -->
-          <div class="bg-slate-950 border border-slate-800 p-10 rounded-3xl">
-            <h3 class="text-2xl font-semibold mb-8 text-emerald-400">
-              Additional Training
-            </h3>
-
-            <ul class="space-y-4 text-gray-400">
-              <li
-                v-for="item in formations"
-                :key="item"
-                class="flex items-start gap-3"
-              >
-                <span class="w-2 h-2 mt-2 bg-emerald-400 rounded-full"></span>
-                {{ item }}
-              </li>
-            </ul>
+              <div class="surface-card rounded-2xl p-5 sm:p-8">
+                <p class="mb-2 text-sm text-emerald-300">
+                  {{ item.year }}
+                </p>
+                <h4 class="mb-1 text-lg font-semibold text-white">
+                  {{ item.degree }}
+                </h4>
+                <p class="text-slate-300">
+                  {{ item.school }}
+                </p>
+              </div>
+            </div>
           </div>
-
-          <!-- Certifications -->
-          <div class="bg-slate-950 border border-slate-800 p-10 rounded-3xl">
-            <h3 class="text-2xl font-semibold mb-8 text-emerald-400">
-              Certifications
-            </h3>
-
-            <ul class="space-y-4 text-gray-400">
-              <li
-                v-for="item in certifications"
-                :key="item"
-                class="flex items-start gap-3"
-              >
-                <span class="w-2 h-2 mt-2 bg-emerald-400 rounded-full"></span>
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-
         </div>
 
-      </div>
+        <div class="space-y-8 md:space-y-12">
+          <div class="surface-card rounded-3xl p-6 sm:p-10">
+            <h3 class="mb-8 text-2xl font-semibold text-emerald-300">
+              {{ t('education.training') }}
+            </h3>
 
+            <ul class="space-y-4 text-slate-200">
+              <li
+                v-for="item in t('education.formations')"
+                :key="item"
+                class="flex items-start gap-3"
+              >
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-emerald-300"></span>
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="surface-card rounded-3xl p-6 sm:p-10">
+            <h3 class="mb-8 text-2xl font-semibold text-emerald-300">
+              {{ t('education.certifications') }}
+            </h3>
+
+            <ul class="space-y-4 text-slate-200">
+              <li
+                v-for="item in t('education.certs')"
+                :key="item"
+                class="flex items-start gap-3"
+              >
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-emerald-300"></span>
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>

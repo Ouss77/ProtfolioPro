@@ -9,28 +9,33 @@ import Experience from '../components/Experience.vue'
 import Education from '../components/Education.vue'
 import Contact from '../components/Contact.vue'
 
+import { useI18n } from '../composables/useI18n'
+
+const { t } = useI18n()
 const currentYear = new Date().getFullYear()
 </script>
 
 <template>
   <div>
     <Navbar />
-    <Hero
-      name="Oussama Sassour"
-      title="Full-Stack Developer · SaaS Builder · Tech Coach"
-      description="I build high-performance web and SaaS solutions, combining scalable architecture, product thinking, and great user experiences.
-Alongside my work, I train and mentor bootcamp developers to help them grow their technical skills."
-    />
-    <About />
-    <Projects />
-    <Skills />
-    <Services />
-    <Experience />
-    <Education />
-    <Contact />
+    <main id="main">
+      <Hero />
+      <About />
+      <Projects />
+      <Skills />
+      <Services />
+      <Experience />
+      <Education />
+      <Contact />
+    </main>
 
-    <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-sm text-gray-400">
-      © {{ currentYear }} Oussama Sassour. All rights reserved.
+    <footer class="site-footer border-t px-4 py-8 text-center text-sm">
+      <p>© {{ currentYear }} Oussama Sassour. {{ t('footer.rights') }}</p>
+      <p class="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+        <a class="underline-offset-4 hover:text-emerald-300 hover:underline" href="mailto:oussamasassour@gmail.com">{{ t('footer.email') }}</a>
+        <a class="underline-offset-4 hover:text-emerald-300 hover:underline" href="https://github.com/Ouss77" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="underline-offset-4 hover:text-emerald-300 hover:underline" href="/CV-OUSSAMA-SASS.pdf" download="CV-OUSSAMA-SASS.pdf">{{ t('footer.cv') }}</a>
+      </p>
     </footer>
   </div>
 </template>

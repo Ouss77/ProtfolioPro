@@ -1,90 +1,51 @@
 <script setup>
 import { useReveal } from '../composables/useReveal'
+import { useI18n } from '../composables/useI18n'
 
-const services = [
-  {
-    id: "01",
-    title: "Full Stack Development",
-    description:
-      "Building modern, high-performance, scalable web applications with robust architecture."
-  },
-  {
-    id: "02",
-    title: "SaaS & MVP",
-    description:
-      "Designing and rapidly launching SaaS products built around market and user needs."
-  },
-  {
-    id: "03",
-    title: "Machine Learning",
-    description:
-      "Integrating AI models and intelligently automating business processes."
-  },
-  {
-    id: "04",
-    title: "DevOps & Cloud",
-    description:
-      "Secure deployments, CI/CD, monitoring, and performance optimization."
-  }
-]
-
-const { isVisible, elementRef } = useReveal(0.3)
+const { isVisible, elementRef } = useReveal(0.12)
+const { t } = useI18n()
 </script>
 
 <template>
   <section
     id="services"
     ref="elementRef"
-    :class="isVisible
-      ? 'py-32 bg-slate-950 text-white opacity-100 translate-y-0 transition-all duration-1000'
-      : 'py-32 bg-slate-950 text-white opacity-0 translate-y-10'"
-    class="services-section"
+    class="services-section band-b px-4 py-16 text-white sm:px-6 md:py-24 lg:py-32"
   >
-    <div class="max-w-7xl mx-auto px-6">
-
-      <!-- Header -->
-      <div class="text-center mb-24">
-        <p class="text-emerald-400 uppercase tracking-widest text-sm mb-3">
-          Services
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-12 text-center md:mb-20">
+        <p class="mb-3 text-sm uppercase tracking-widest text-emerald-300">
+          {{ t('services.kicker') }}
         </p>
-        <h2 class="services-title text-5xl font-bold mb-6">
-          Services
+        <h2 class="services-title mb-4 text-3xl font-bold text-white sm:text-4xl md:mb-6 md:text-5xl">
+          {{ t('services.title') }}
         </h2>
-        <p class="services-subtitle text-gray-400 max-w-2xl mx-auto">
-          Technical solutions tailored to your business goals.
+        <p class="services-subtitle mx-auto max-w-2xl text-slate-200">
+          {{ t('services.intro') }}
         </p>
       </div>
 
-      <!-- Grid -->
-      <div class="grid md:grid-cols-2 gap-12">
-
-        <div
-          v-for="(service, index) in services"
-          :key="service.id"
-          :style="{ transitionDelay: isVisible ? index * 150 + 'ms' : '0ms' }"
-          :class="isVisible
-            ? 'group relative p-12 rounded-3xl border border-slate-800 bg-slate-900/40 backdrop-blur-xl hover:border-emerald-500/40 transition-all duration-700 opacity-100 translate-y-0'
-            : 'group relative p-12 rounded-3xl border border-slate-800 bg-slate-900/40 opacity-0 translate-y-10'"
-          class="service-card"
+      <div class="grid gap-5 md:grid-cols-2 md:gap-8">
+        <article
+          v-for="(service, index) in t('services.items')"
+          :key="service.title"
+          :style="{ transitionDelay: isVisible ? `${index * 100}ms` : '0ms' }"
+          :class="isVisible ? 'is-in' : ''"
+          class="service-card surface-card group relative rounded-3xl p-6 sm:p-8 md:p-10"
         >
-
-          <!-- Big Number -->
-          <span class="service-index absolute top-6 right-8 text-6xl font-bold text-slate-800 group-hover:text-emerald-500/20 transition duration-500">
-            {{ service.id }}
+          <span class="service-index absolute right-5 top-5 text-4xl font-bold text-slate-500/70 sm:right-8 sm:top-6 sm:text-6xl" aria-hidden="true">
+            {{ String(index + 1).padStart(2, '0') }}
           </span>
 
-          <h3 class="text-2xl font-semibold mb-6 text-emerald-400">
+          <h3 class="mb-4 pr-12 text-xl font-semibold text-emerald-300 sm:text-2xl">
             {{ service.title }}
           </h3>
 
-          <p class="text-gray-400 leading-relaxed">
+          <p class="leading-relaxed text-slate-200">
             {{ service.description }}
           </p>
-
-        </div>
-
+        </article>
       </div>
-
     </div>
   </section>
 </template>

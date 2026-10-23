@@ -6,27 +6,28 @@ defineProps({
 </script>
 
 <template>
-<div class="skill-chip group flex items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl border border-slate-800 bg-slate-900/85 px-2.5 md:px-4 py-2 md:py-3 min-h-[46px] md:min-h-[64px] shadow-sm transition duration-300 hover:border-emerald-500/35 hover:bg-slate-900">
+<div class="skill-chip group flex min-h-14 items-center gap-2.5 rounded-xl border border-slate-800 bg-slate-900/85 px-3 py-2.5 shadow-sm hover:border-emerald-500/35 hover:bg-slate-900 md:min-h-16 md:gap-3 md:rounded-2xl md:px-4 md:py-3">
   <div
     v-if="logo"
-    class="skill-logo flex h-5 w-5 md:h-8 md:w-8 shrink-0 items-center justify-center"
+    class="skill-logo flex h-6 w-6 shrink-0 items-center justify-center md:h-8 md:w-8"
   >
     <img
       :src="logo"
-      :alt="name"
-      class="h-5 w-5 md:h-8 md:w-8 object-contain"
+      alt=""
+      class="h-6 w-6 object-contain md:h-8 md:w-8"
     />
   </div>
 
   <div
     v-else
-    class="skill-fallback flex h-5 w-5 md:h-8 md:w-8 shrink-0 items-center justify-center rounded-full bg-slate-800 text-[8px] md:text-[10px] font-bold uppercase tracking-wide text-emerald-300"
+    class="skill-fallback flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wide text-emerald-300 md:h-8 md:w-8"
+    aria-hidden="true"
   >
     API
   </div>
 
-  <h3 class="skill-name text-[12px] md:text-lg font-medium leading-tight text-white/95 whitespace-nowrap">
+  <p class="skill-name text-sm font-medium leading-tight text-white/95 md:text-base">
     {{ name }}
-  </h3>
+  </p>
 </div>
 </template>

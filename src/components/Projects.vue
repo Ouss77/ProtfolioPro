@@ -1,55 +1,56 @@
 <script setup>
+import { computed } from 'vue'
 import { projects } from '../data/projects'
 import ProjectCard from './ProjectCard.vue'
 import { useReveal } from '../composables/useReveal'
+import { useI18n } from '../composables/useI18n'
 
-const { isVisible, elementRef } = useReveal(0.3)
-const featuredProjects = projects.slice(0, 3)
+const { isVisible, elementRef } = useReveal(0.12)
+const { t, localizeProject } = useI18n()
+
+const featuredProjects = computed(() =>
+  projects.filter(project => project.featured).map(project => localizeProject(project))
+)
+const hasMore = computed(() => projects.some(project => !project.featured))
 </script>
 
 <template>
   <section
     id="projets"
     ref="elementRef"
-    class="projects-section py-32 bg-gradient-to-b from-slate-950 to-slate-900 text-white"
+    class="projects-section band-b px-4 py-16 text-white sm:px-6 md:py-24 lg:py-32"
   >
-    <div class="max-w-7xl mx-auto px-6">
-
-      <p class="projects-kicker text-emerald-400 uppercase tracking-widest text-sm mb-3 text-center">
-        Projects
+    <div class="mx-auto max-w-7xl">
+      <p class="projects-kicker mb-3 text-center text-sm uppercase tracking-widest text-emerald-300">
+        {{ t('projectsSection.kicker') }}
       </p>
 
-      <h2 class="projects-title text-4xl font-bold mb-16 text-center">
-        My Projects
+      <h2 class="projects-title mb-4 text-center text-3xl font-bold text-white sm:text-4xl">
+        {{ t('projectsSection.title') }}
       </h2>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <p class="mx-auto mb-10 max-w-2xl text-center text-sm leading-relaxed text-slate-200 md:mb-14 md:text-base">
+        {{ t('projectsSection.intro') }}
+      </p>
 
+      <div class="grid gap-6 md:grid-cols-2 md:gap-8">
         <ProjectCard
           v-for="(project, index) in featuredProjects"
           :key="project.id"
-          :id="project.id"
-          :title="project.title"
-          :description="project.description"
-          :image="project.image"
-          :liveUrl="project.liveUrl"
-          :githubUrl="project.githubUrl"
-          :tech="project.tech"
+          v-bind="project"
           :index="index"
           :visible="isVisible"
         />
-
       </div>
 
-      <div v-if="projects.length > 3" class="flex justify-center mt-12">
+      <div v-if="hasMore" class="mt-10 flex justify-center md:mt-12">
         <router-link
           to="/projects"
-          class="projects-cta px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-full font-medium transition-all duration-300 transform hover:scale-105 border border-slate-700 hover:border-slate-600 shadow-lg hover:shadow-slate-900/50"
+          class="projects-cta inline-flex min-h-11 items-center justify-center rounded-full border border-emerald-300/40 bg-emerald-400 px-8 py-3 font-semibold text-slate-950 shadow-lg hover:bg-emerald-300"
         >
-          View all projects
+          {{ t('actions.allProjects') }}
         </router-link>
       </div>
-
     </div>
   </section>
 </template>

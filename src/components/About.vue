@@ -1,123 +1,95 @@
 <script setup>
 import { useReveal } from '../composables/useReveal'
+import { useI18n } from '../composables/useI18n'
 
-const { isVisible, elementRef } = useReveal(0.3)
+const { isVisible, elementRef } = useReveal(0.15)
+const { t } = useI18n()
 </script>
 
 <template>
   <section
     id="about"
     ref="elementRef"
-    :class="isVisible
-      ? 'py-32 bg-slate-950 text-white opacity-100 translate-y-0 transition-all duration-1000'
-      : 'py-32 bg-slate-950 text-white opacity-0 translate-y-10'"
+    class="band-a px-4 py-16 text-white sm:px-6 md:py-24 lg:py-32"
   >
-    <div class="max-w-7xl mx-auto px-6">
-
-      <!-- Title -->
-      <div class="text-center mb-20">
-        <p class="text-emerald-400 uppercase tracking-widest text-sm mb-3">
-          About
+    <div
+      class="reveal mx-auto max-w-7xl"
+      :class="isVisible ? 'is-in' : ''"
+    >
+      <div class="mb-12 text-center md:mb-20">
+        <p class="mb-3 text-sm uppercase tracking-widest text-emerald-300">
+          {{ t('about.kicker') }}
         </p>
 
-        <h2 class="text-5xl font-bold mb-4">
-          Who am I?
+        <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+          {{ t('about.title') }}
         </h2>
 
-        <p class="text-gray-400 max-w-2xl mx-auto">
-          Passionate about technology and innovation, I turn ideas into
-          high-performing digital products.
+        <p class="mx-auto max-w-2xl text-slate-200">
+          {{ t('about.intro') }}
         </p>
       </div>
 
-      <!-- Content -->
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-
-        <!-- Image Column -->
+      <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
         <div class="relative flex flex-col items-center">
+          <div class="absolute h-56 w-56 rounded-full bg-emerald-400/25 blur-3xl sm:h-72 sm:w-72" aria-hidden="true"></div>
 
-          <!-- Glow background -->
-          <div class="absolute w-72 h-72 bg-emerald-500/20 blur-3xl rounded-full"></div>
-
-          <!-- Profile Image -->
           <div class="relative">
             <img
               src="../images/pr.jpg"
-              class="w-64 h-64 object-fit rounded-full border border-emerald-500/30 shadow-2xl"
+              :alt="t('about.portraitAlt')"
+              width="256"
+              height="256"
+              loading="lazy"
+              decoding="async"
+              class="hero-portrait h-48 w-48 rounded-full border border-emerald-300/40 object-cover shadow-2xl sm:h-64 sm:w-64"
             />
 
-            <!-- Experience Badge -->
-            <div class="absolute bottom-0 right-0 bg-emerald-500 text-black px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-              5+ years of experience
-            </div>
+            <p class="absolute -bottom-3 left-1/2 w-max max-w-[16rem] -translate-x-1/2 rounded-full bg-emerald-400 px-4 py-2 text-center text-xs font-semibold text-slate-950 shadow-lg sm:text-sm">
+              {{ t('about.badge') }}
+            </p>
           </div>
-
         </div>
 
-        <!-- Text Column -->
-        <div>
-
-          <p class="text-gray-300 leading-relaxed mb-6">
-Developer  <span class="text-emerald-400 font-semibold">
-              Full Stack
-            </span>and entrepreneur, I work at the intersection of technology, product, and education.
-My experience has led me to build end-to-end digital solutions, from market research and technical architecture to user experience optimization.
-Alongside my work, I coach developers in bootcamps, with a focus on rigor, independence, and a genuine understanding of the fundamentals.
-I’m now looking to contribute to ambitious projects, as a freelancer or part of a team, where technology supports a clear, lasting vision.
-
+        <div class="pt-4 md:pt-0">
+          <p class="mb-6 leading-relaxed text-slate-100">
+            {{ t('about.p1Before') }}
+            <span class="font-semibold text-emerald-300">{{ t('about.p1Emphasis') }}</span>
+            {{ t('about.p1After') }}
           </p>
 
-          <p class="text-gray-400 leading-relaxed mb-8">
-            My approach combines technical expertise with product thinking.
-            From initial design to production, I make sure every project
-            meets a high standard.
+          <p class="mb-6 leading-relaxed text-slate-100">
+            {{ t('about.p2') }}
           </p>
 
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-3">
-            <span class="px-4 py-2 rounded-full border border-emerald-500/30 text-emerald-400 text-sm">
-              Full Stack
-            </span>
-            <span class="px-4 py-2 rounded-full border border-emerald-500/30 text-emerald-400 text-sm">
-              Machine Learning
-            </span>
-            <span class="px-4 py-2 rounded-full border border-emerald-500/30 text-emerald-400 text-sm">
-              SaaS
-            </span>
-            <span class="px-4 py-2 rounded-full border border-emerald-500/30 text-emerald-400 text-sm">
-              DevOps
-            </span>
-          </div>
+          <p class="mb-8 leading-relaxed text-slate-300">
+            {{ t('about.p3') }}
+          </p>
 
+          <ul class="flex flex-wrap gap-2 sm:gap-3">
+            <li
+              v-for="tag in t('about.tags')"
+              :key="tag"
+              class="rounded-full border border-emerald-300/40 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"
+            >
+              {{ tag }}
+            </li>
+          </ul>
         </div>
-
       </div>
 
-      <!-- Statistics -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center mt-24">
-
-        <div>
-          <h3 class="text-4xl font-bold text-emerald-400">10+</h3>
-          <p class="text-gray-500 text-sm mt-2">Projects completed</p>
-        </div>
-
-        <div>
-          <h3 class="text-4xl font-bold text-emerald-400">10+</h3>
-          <p class="text-gray-500 text-sm mt-2">Technologies mastered</p>
-        </div>
-
-        <div>
-          <h3 class="text-4xl font-bold text-emerald-400">5+</h3>
-          <p class="text-gray-500 text-sm mt-2">Happy clients</p>
-        </div>
-
-        <div>
-          <h3 class="text-4xl font-bold text-emerald-400">99%</h3>
-          <p class="text-gray-500 text-sm mt-2">Satisfaction rate</p>
-        </div>
-
-      </div>
-
+      <ul class="mt-16 grid gap-4 sm:grid-cols-3 md:mt-24">
+        <li
+          v-for="(item, index) in t('about.focus')"
+          :key="item.title"
+          class="surface-card rise rounded-2xl p-5 text-left"
+          :style="{ transitionDelay: isVisible ? `${160 + index * 90}ms` : '0ms' }"
+          :class="isVisible ? 'is-in' : ''"
+        >
+          <h3 class="text-base font-semibold text-emerald-300">{{ item.title }}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-200">{{ item.text }}</p>
+        </li>
+      </ul>
     </div>
   </section>
 </template>

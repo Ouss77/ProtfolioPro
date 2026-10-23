@@ -16,10 +16,20 @@ html.light-mode {
   }
 }
 html{
-  scroll-behavior: smooth ;
+  scroll-behavior: smooth;
 }
-* {
-  transition-property: color, background-color, border-color, transform, box-shadow;
+
+body {
+  overflow-x: clip;
+}
+
+:where(a, button, input, textarea, summary):focus-visible {
+  outline: 2px solid #34d399;
+  outline-offset: 3px;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
 html.light-mode body {
@@ -37,8 +47,38 @@ html.light-mode .bg-slate-950\/90 {
 
 html.light-mode .text-white,
 html.light-mode .text-slate-100,
-html.light-mode .text-slate-200 {
+html.light-mode .text-slate-200,
+html.light-mode .text-gray-200 {
   color: #0f172a !important;
+}
+
+.mobile-menu {
+  background-color: #1c2b45 !important;
+}
+
+.mobile-menu a {
+  color: #e2e8f0 !important;
+}
+
+.mobile-menu a.text-emerald-400,
+html.light-mode .mobile-menu a.text-emerald-400 {
+  color: #34d399 !important;
+}
+
+.contact-label {
+  color: #e5e7eb;
+}
+
+html.light-mode .contact-label {
+  color: #0f172a !important;
+}
+
+html.light-mode .form-error {
+  color: #b91c1c !important;
+}
+
+html.light-mode .form-success {
+  color: #047857 !important;
 }
 
 html.light-mode .text-gray-500,
@@ -80,15 +120,20 @@ html.light-mode .tech-item p {
   color: #0f172a !important;
 }
 
-/* Keep Hero section visual identity unchanged across theme switch */
 html.light-mode #accueil {
-  background-image: linear-gradient(to bottom right, #020617, #0f172a, #1e293b) !important;
-  color: #ffffff !important;
+  background: linear-gradient(160deg, #e7f5ef 0%, #f8fafc 46%, #e4ecf7 100%) !important;
+  color: #0f172a !important;
 }
 
 html.light-mode #accueil .text-white,
+html.light-mode #accueil .text-slate-100,
 html.light-mode #accueil .text-gray-300 {
-  color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.light-mode #accueil .text-slate-300,
+html.light-mode #accueil .text-gray-400 {
+  color: #334155 !important;
 }
 
 html.light-mode .services-section,
@@ -431,6 +476,279 @@ html.light-mode .projects-cta:hover {
   border-color: rgba(16, 185, 129, 0.4) !important;
 }
 
+body {
+  background: #16243a;
+  color: #f8fafc;
+}
+
+.site-header {
+  background: rgba(22, 36, 58, 0.94);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.22);
+  box-shadow: 0 10px 28px rgba(2, 6, 23, 0.28);
+  backdrop-filter: blur(16px);
+}
+
+.brand-link,
+.nav-link,
+.menu-toggle,
+.site-footer {
+  color: #f8fafc;
+}
+
+.nav-link.is-active,
+.nav-link:hover {
+  color: #6ee7b7;
+}
+
+.theme-toggle {
+  color: #d1fae5;
+  border-color: rgba(110, 231, 183, 0.5);
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.lang-switch {
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid rgba(226, 232, 240, 0.28);
+}
+
+.lang-btn {
+  min-height: 2.75rem;
+  padding: 0 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #e2e8f0;
+}
+
+.lang-btn[aria-pressed='true'] {
+  background: #34d399;
+  color: #052e16;
+}
+
+#accueil {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(52, 211, 153, 0.22), transparent 26%),
+    linear-gradient(160deg, #1a2a44 0%, #243656 58%, #31486d 100%);
+}
+
+.hero-photo img {
+  opacity: 0.72;
+}
+
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26, 42, 68, 0.42) 0%, rgba(26, 42, 68, 0.78) 58%, #1a2a44 100%);
+}
+
+.band-a {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(52, 211, 153, 0.12), transparent 32%),
+    #1c2b45;
+}
+
+.band-b {
+  background:
+    radial-gradient(circle at 92% 0%, rgba(125, 211, 252, 0.12), transparent 30%),
+    #243656;
+}
+
+.surface-card,
+.project-card,
+.skill-chip {
+  background: #2c4164;
+  border: 1px solid rgba(226, 232, 240, 0.18);
+  color: #f8fafc;
+}
+
+.project-card-title,
+.skill-name {
+  color: #f8fafc;
+}
+
+.project-card-description {
+  color: #dbe7f5;
+}
+
+.project-tech-pill {
+  background: rgba(16, 185, 129, 0.16);
+  color: #d1fae5;
+}
+
+.project-btn-code {
+  border-color: rgba(226, 232, 240, 0.28);
+  color: #f8fafc;
+  background: transparent;
+}
+
+.project-btn-code:hover {
+  border-color: #6ee7b7;
+  color: #d1fae5;
+}
+
+.field-input {
+  background: #1a2740;
+  border-color: rgba(226, 232, 240, 0.28);
+  color: #f8fafc;
+}
+
+.site-footer {
+  background: #16243a;
+  border-color: rgba(226, 232, 240, 0.16);
+}
+
+.project-detail {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(52, 211, 153, 0.14), transparent 28%),
+    #1c2b45;
+}
+
+main > section + section {
+  box-shadow: inset 0 1px 0 rgba(226, 232, 240, 0.14);
+}
+
+.reveal,
+.rise,
+.service-card,
+.skill-group {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.reveal.is-in,
+.rise.is-in,
+.service-card.is-in,
+.skill-group.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.project-card.is-in:hover,
+.service-card.is-in:hover,
+.experience-card:hover {
+  transform: translateY(-4px);
+}
+
+.hero-copy > * {
+  animation: hero-enter 0.7s ease both;
+}
+
+.hero-copy > *:nth-child(2) { animation-delay: 0.08s; }
+.hero-copy > *:nth-child(3) { animation-delay: 0.16s; }
+.hero-copy > *:nth-child(4) { animation-delay: 0.24s; }
+.hero-copy > *:nth-child(5) { animation-delay: 0.32s; }
+.hero-copy > *:nth-child(6) { animation-delay: 0.4s; }
+
+.hero-portrait {
+  animation: hero-float 6.5s ease-in-out infinite;
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+html.light-mode body,
+html.light-mode .site-footer,
+html.light-mode .project-detail {
+  background: #f4f7fb !important;
+  color: #0f172a;
+}
+
+html.light-mode .site-header {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-bottom: 1px solid #d5deea;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+html.light-mode .brand-link,
+html.light-mode .nav-link,
+html.light-mode .menu-toggle,
+html.light-mode .site-footer,
+html.light-mode .lang-btn {
+  color: #0f172a !important;
+}
+
+html.light-mode .nav-link.is-active,
+html.light-mode .nav-link:hover {
+  color: #047857 !important;
+}
+
+html.light-mode .theme-toggle {
+  color: #047857 !important;
+  border-color: rgba(4, 120, 87, 0.35);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+html.light-mode .lang-btn[aria-pressed='true'] {
+  background: #059669;
+  color: #ffffff !important;
+}
+
+html.light-mode .mobile-menu {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light-mode .mobile-menu a,
+html.light-mode .mobile-menu .nav-link {
+  color: #0f172a !important;
+}
+
+html.light-mode .mobile-menu .nav-link.is-active {
+  color: #047857 !important;
+}
+
+html.light-mode .band-a {
+  background: #f7fafc !important;
+}
+
+html.light-mode .band-b,
+html.light-mode .projects-section {
+  background: #e7eef6 !important;
+}
+
+html.light-mode .hero-photo::after {
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.2) 0%, rgba(248, 250, 252, 0.82) 62%, #f8fafc 100%);
+}
+
+html.light-mode .surface-card,
+html.light-mode .field-input {
+  background: #ffffff !important;
+  border-color: #d5deea !important;
+  color: #0f172a !important;
+}
+
+html.light-mode .text-emerald-200,
+html.light-mode .text-emerald-300,
+html.light-mode .text-emerald-400 {
+  color: #047857 !important;
+}
+
+html.light-mode main > section + section {
+  box-shadow: inset 0 1px 0 #d5deea;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.4s ease;
@@ -439,4 +757,19 @@ html.light-mode .projects-cta:hover {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
